@@ -5,42 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 16:07:24 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/05 16:08:48 by qmennen          ###   ########.fr       */
+/*   Created: 2024/12/10 17:40:11 by qmennen           #+#    #+#             */
+/*   Updated: 2024/12/10 17:50:34 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+static t_stack	*process_input(char **input)
 {
-	t_data	*last;
-	int		i;
+	t_stack *result;
 
-	last = stack->head;
-	i = 0;
-	while (last)
-	{
-		ft_printf("Stack at %i = %i\n", i, last->val);
-		i++;
-		last = last->next;
-	}
+	result = ft_calloc(1, sizeof(t_stack));
+	if (!result)
+		return (NULL);
+	while (*input)
+		push(result, ft_atoi(*(input++)));
+	return (result);
 }
 
-int	main(void)
+static void	print_stack(t_stack *stack)
 {
-	t_stack *stack;
-	t_list	*idx;
+	t_data	*current;
 
-	stack = ft_calloc(1, sizeof(t_stack));
-	push(stack, 12);
-	push(stack, 14);
-	push(stack, 16);
-	push(stack, 18);
+	current = stack->head;
+	while(current->next)
+	{
+		ft_printf("%i\n", current->val);
+		current = current->next;
+	}
+	ft_printf("%i\n", current->val);
+}
+
+int	main(int argc, char **argv)
+{
+	char	**arguments;
+	t_stack	*stack;
+	if (argc < 2)
+		return (1);
+	if (argc == 2)
+		arguments = ft_split(argv[1], ' ');
+	else if (argc > 2)
+		arguments = ++argv;
+	stack = process_input(arguments);
 	print_stack(stack);
-	r_rotate(stack);
-	ft_printf("\n\n");
-	print_stack(stack);
-	free(stack);
 	return (0);
 }
