@@ -1,4 +1,5 @@
 
-.out
+*.o
+*.out
 .vscode
 compile_commands.json
