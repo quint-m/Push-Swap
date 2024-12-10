@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:05:31 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/05 16:05:47 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:03:37 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	pop(t_stack *stack)
 		return ;
 	last = stack->head;
 	stack->head = stack->head->next;
+	stack->size -= 1;
 	free(last);
 }
 

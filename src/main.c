@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:40:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/10 17:50:34 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:10:03 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,63 @@ static void	print_stack(t_stack *stack)
 	ft_printf("%i\n", current->val);
 }
 
+static t_stack	*sort(t_stack *a)
+{
+	t_stack	*b;
+	int		tmp_a;
+	int		tmp_b;
+	int		operations;
+	t_data	*current;
+
+	operations = 0;
+	b = ft_calloc(1, sizeof(*a));
+	if (!b)
+		return (NULL);
+	while (a->size > 0)
+	{
+		tmp_a = a->head->val;
+		pop(a);
+		operations++;
+		while (b->size > 0 && b->head->val < tmp_a)
+		{
+			operations++;
+			pa(a, b);
+		}
+		operations++;
+		push(b, tmp_a);
+	}
+	ft_printf("operations: %i\n", operations);
+	return (b);
+}
+
+static int	ft_max(t_stack *stack)
+{
+	int		max;
+	t_data	*current;
+
+	current = stack->head;
+	max = current->val;
+	while(current)
+	{
+		if (max < current->val)
+			max = current->val;
+		current = current->next;
+	}
+	return (max);
+}
+
 int	main(int argc, char **argv)
 {
-	char	**arguments;
 	t_stack	*stack;
+	t_stack *sorted;
 	if (argc < 2)
 		return (1);
 	if (argc == 2)
-		arguments = ft_split(argv[1], ' ');
+		stack = process_input(ft_split(argv[1], ' '));
 	else if (argc > 2)
-		arguments = ++argv;
-	stack = process_input(arguments);
-	print_stack(stack);
+		stack = process_input(++argv);
+
+	sorted = sort(stack);
+	print_stack(sorted);
 	return (0);
 }
