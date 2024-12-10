@@ -16,20 +16,22 @@
 # include "libft.h"
 # include <stddef.h>
 
-typedef	struct	s_data
+typedef struct s_data
 {
 	long			val;
 	struct s_data	*next;
 }				t_data;
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	t_data	*head;
 	size_t	size;
 }				t_stack;
 
 void	push(t_stack *stack, long val);
-
 void	pop(t_stack *stack);
+void	swap(t_stack *stack);
+void	rotate(t_stack *stack);
+void	r_rotate(t_stack *stack);
 
 #endif
