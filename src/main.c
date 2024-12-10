@@ -12,6 +12,21 @@
 
 #include "push_swap.h"
 
+void	print_stack(t_stack *stack)
+{
+	t_data	*last;
+	int		i;
+
+	last = stack->head;
+	i = 0;
+	while (last)
+	{
+		ft_printf("Stack at %i = %i\n", i, last->val);
+		i++;
+		last = last->next;
+	}
+}
+
 int	main(void)
 {
 	t_stack *stack;
@@ -20,11 +35,12 @@ int	main(void)
 	stack = ft_calloc(1, sizeof(t_stack));
 	push(stack, 12);
 	push(stack, 14);
-	push(stack, 15);
-	ft_printf("Stack head: %i\n", stack->head->val);
-	pop(stack);
-	pop(stack);
-	ft_printf("Stack head: %i\n", stack->head->val);
+	push(stack, 16);
+	push(stack, 18);
+	print_stack(stack);
+	r_rotate(stack);
+	ft_printf("\n\n");
+	print_stack(stack);
 	free(stack);
 	return (0);
 }
