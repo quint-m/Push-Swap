@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:25:41 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 14:56:18 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 15:25:46 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_stackpos(int	num, t_stack *stack)
 
 	i = 0;
 	current = stack->head;
-	dist = num - current->val;
+	dist = 999;
 	while (current)
 	{
 		if (current->val > num)

@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:40:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 15:09:18 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 15:38:22 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,32 +74,17 @@ static t_stack	*sort(t_stack *a)
 	b = ft_calloc(1, sizeof(*a));
 	if (!b)
 		return (NULL);
-	//pb(a, b);
-	//pb(a, b);
-	//print_stacks(a, b);
-	pop(a);
-	pop(a);
-	pop(a);
-	pop(a);
-	pop(a);
-	push(b, 7);
-	push(b, 1);
-	push(b, 2);
-	push(b, 5);
-	push(b, 6);
+	pb(a, b);
+	pb(a, b);
 	print_stacks(a, b);
-	next = cheapest_index(a, b);
-	ft_printf("\nnext to move at index: %i\n\n", next);
-	/*
 	while (a->size > 3)
 	{
+		ft_printf("\n");
 		next = cheapest_index(a, b);
-		ft_printf("\nnext to move at index: %i\n\n", next);
 		move(a, b, next);
 		print_stacks(a, b);
 	}
 	print_stacks(a, b);
-	*/
 }
 
 int	main(int argc, char **argv)
