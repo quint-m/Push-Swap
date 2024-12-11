@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/10 16:08:51 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 11:40:52 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,10 @@ void	rr(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	ss(t_stack *a, t_stack *b);
+int		ft_abs(int a);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
+int		ft_sign(int a);
+int		ft_stackmax(t_stack *stack);
 
 #endif
