@@ -6,11 +6,12 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:03:28 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/10 16:08:06 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 12:10:24 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	ss(t_stack *a, t_stack *b)
 {
@@ -26,6 +27,7 @@ void	pa(t_stack *a, t_stack *b)
 
 void	pb(t_stack *a, t_stack *b)
 {
+	write(1, "pb\n", 3);
 	push(b, a->head->val);
 	pop(a);
 }

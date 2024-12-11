@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 11:40:52 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 12:02:19 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,26 @@ void	pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
 void	r_rotate(t_stack *stack);
+/*
+ *	Stack utils
+ */
 void	rrr(t_stack *a, t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	ss(t_stack *a, t_stack *b);
+/*
+ *	Math utils
+ */
 int		ft_abs(int a);
 int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 int		ft_sign(int a);
 int		ft_stackmax(t_stack *stack);
+/*
+ *	Algorithm utils
+ */
+int		cheapest_index(t_stack *a, t_stack *b);
+int		move(t_stack *a, t_stack *b, int idx);
 
 #endif
