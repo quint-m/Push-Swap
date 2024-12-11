@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 		stack = process_input(++argv);
 	sort(stack);
-	//print_stack(stack);
+	print_stack(stack);
 	ft_stackfree(stack);
 	return (0);
 }
