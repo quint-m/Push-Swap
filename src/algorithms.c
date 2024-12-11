@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:58:39 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 12:10:54 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 15:15:00 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	calculate_rotations(int num, t_stack *stack)
 static int	calculate_cost(int a_index, t_stack *a, t_stack *b)
 {
 	t_data	*a_data;
-	int		rotations_b;
-	int		rotations_a;
+	int		rot_a;
+	int		rot_b;
 	int		overlap;
 	int		i;
 
@@ -47,17 +47,22 @@ static int	calculate_cost(int a_index, t_stack *a, t_stack *b)
 		a_data = a_data->next;
 		i++;
 	}
-	rotations_b = calculate_rotations(ft_stackmax(b), b);
-	rotations_a = calculate_rotations(a_data->val, a);
+	rot_a = calculate_rotations(a_data->val, a);
+	if (a_data->val > ft_stackmax(b) || a_data->val < ft_stackmin(b))
+		rot_b = calculate_rotations(ft_stackmax(b), b);
+	else
+		rot_b = calculate_rotations(ft_stackpos(a_data->val, b), b);
 	overlap = 0;
-	if ((rotations_a > 0 && rotations_b > 0)
-		|| (rotations_a < 0 && rotations_b < 0))
+	if ((rot_a > 0 && rot_b > 0)
+		|| (rot_a < 0 && rot_b < 0))
 	{
-		overlap = ft_min(ft_abs(rotations_a), ft_abs(rotations_b));
-		rotations_a -= overlap;
-		rotations_b -= overlap;
+		/*
+		overlap = ft_min(ft_abs(rot_a), ft_abs(rot_b));
+		rot_a -= overlap * ft_sign();
+		rot_b -= overlap;
+		*/
 	}
-	return (overlap + ft_max(ft_abs(rotations_a), ft_abs(rotations_b)) + 1);
+	return (overlap + ft_abs(rot_a) + ft_abs(rot_b) + 1);
 }
 
 int	cheapest_index(t_stack *a, t_stack *b)
@@ -75,6 +80,7 @@ int	cheapest_index(t_stack *a, t_stack *b)
 	while (current)
 	{
 		cost = calculate_cost(i, a, b);
+		ft_printf("cost for %i is %i\n", current->val, cost);
 		if (cost < l_cost)
 		{
 			l_cost = cost;
@@ -90,8 +96,8 @@ int	move(t_stack *a, t_stack *b, int idx)
 {
 	t_data	*a_data;
 	int		i;
-	int		a_rot;
-	int		b_rot;
+	int		rot_a;
+	int		rot_b;
 	int		overlap;
 
 	a_data = a->head;
@@ -101,21 +107,23 @@ int	move(t_stack *a, t_stack *b, int idx)
 		a_data = a_data->next;
 		i++;
 	}
-	b_rot = calculate_rotations(ft_stackmax(b), b);
-	a_rot = calculate_rotations(a_data->val, a);
+	rot_a = calculate_rotations(a_data->val, a);
+	if (a_data->val > ft_stackmax(b) || a_data->val < ft_stackmin(b))
+		rot_b = calculate_rotations(ft_stackmax(b), b);
+	else
+		rot_b = calculate_rotations(ft_stackpos(a_data->val, b), b);
 	overlap = 0;
 	
-	if ((a_rot > 0 && b_rot > 0)
-		|| (a_rot < 0 && b_rot < 0))
+	if ((rot_a > 0 && rot_b > 0)
+		|| (rot_a < 0 && rot_b < 0))
 	{
-		overlap = ft_min(ft_abs(a_rot), ft_abs(b_rot));
+		overlap = ft_min(ft_abs(rot_a), ft_abs(rot_b));
 	}
 	while (overlap-- > 0)
 		rr(a, b);
-	while (b_rot-- > 0)
-	{
-		rotate(b);
-		ft_printf("rb\n");
-	}
+	while (rot_b-- > 0)
+		rb(b);
+	while (rot_b-- > 0)
+		ra(b);
 	pb(a, b);
 }

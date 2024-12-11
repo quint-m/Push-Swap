@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 12:02:19 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 14:32:04 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,12 @@ void	r_rotate(t_stack *stack);
  */
 void	rrr(t_stack *a, t_stack *b);
 void	rr(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 /*
  *	Math utils
@@ -49,6 +53,8 @@ int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 int		ft_sign(int a);
 int		ft_stackmax(t_stack *stack);
+int		ft_stackmin(t_stack *stack);
+int		ft_stackpos(int	num, t_stack *stack);
 /*
  *	Algorithm utils
  */
