@@ -1,88 +1,117 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_util.c                                       :+:      :+:    :+:   */
+/*   stack_util_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 16:05:31 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/10 18:03:37 by qmennen          ###   ########.fr       */
+/*   Created: 2024/12/11 14:25:41 by qmennen           #+#    #+#             */
+/*   Updated: 2024/12/11 17:56:53 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack, long val)
+/*
+ * Find the smallest number in `stack`
+ */
+int		ft_stackmin(t_stack *stack)
 {
-	t_data	*new;
-
-	if (! stack)
-		return ;
-	new = ft_calloc(1, sizeof(t_data));
-	new->val = val;
-	new->next = stack->head;
-	stack->head = new;
-	stack->size += 1;
-}
-
-void	pop(t_stack *stack)
-{
-	t_data	*last;
-
-	if (! stack->head)
-		return ;
-	last = stack->head;
-	stack->head = stack->head->next;
-	stack->size -= 1;
-	free(last);
-}
-
-void	swap(t_stack *stack)
-{
-	t_data	*last;
-	t_data	*third;
-
-	if (stack->size < 2)
-		return ;
-	last = stack->head;
-	third = stack->head->next->next;
-	stack->head = stack->head->next;
-	stack->head->next = last;
-	stack->head->next->next = third;
-}
-
-void	rotate(t_stack *stack)
-{
+	int		min;
 	t_data	*current;
-	t_data	*head;
-	t_data	*new_top;
 
-	if (stack->size < 2)
-		return ;
-	head = stack->head;
 	current = stack->head;
-	new_top = stack->head->next;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = head;
-	head->next = NULL;
-	stack->head = new_top;
-}
-
-void	r_rotate(t_stack *stack)
-{
-	t_data	*current;
-	t_data	*second;
-
-	if (stack->size < 2)
-		return ;
-	current = stack->head;
-	while (current->next != NULL)
+	min = current->val;
+	while (current)
 	{
-		second = current;
+		if (min > current->val)
+			min = current->val;
 		current = current->next;
 	}
-	second->next = NULL;
-	current->next = stack->head;
-	stack->head = current;
+	return (min);
+}
+
+/*
+ * Find the biggest number in `stack`
+ */
+int	ft_stackmax(t_stack *stack)
+{
+	int		max;
+	t_data	*current;
+
+	current = stack->head;
+	max = current->val;
+	while (current)
+	{
+		if (max < current->val)
+			max = current->val;
+		current = current->next;
+	}
+	return (max);
+}
+
+/*
+ * Find the next smallest number after `num` in `stack`
+ */
+int		ft_stackpos(int	num, t_stack *stack)
+{
+	int		i;
+	int		c_dist;
+	t_data	*current;
+
+	i = 0;
+	current = stack->head;
+	c_dist = INT_MAX;
+	while (current)
+	{
+		if (current->val < num && c_dist > num - current->val)
+		{
+			c_dist = num - current->val;
+			i = current->val;
+		}
+		current = current->next;
+	}
+	return (i);
+}
+
+/*
+ * Find the next biggest number after `num` in `stack`
+ */
+int		ft_rstackpos(int num, t_stack *stack)
+{
+	int		i;
+	int		c_dist;
+	t_data	*current;
+
+	i = 0;
+	current = stack->head;
+	c_dist = INT_MAX;
+	while (current)
+	{
+		if (current->val > num && c_dist > current->val - num)
+		{
+			c_dist = current->val - num; 
+			i = current->val;
+		}
+		current = current->next;
+	}
+	return (i);
+}
+
+/*
+ * Free a stack and all data
+ */
+void	ft_stackfree(t_stack *stack)
+{
+	t_data	*current;
+	t_data	*last;
+
+	current = stack->head;
+	while (current)
+	{
+		last = current;
+		current = current->next;
+		free(last);
+	}
+	free(stack);
 }

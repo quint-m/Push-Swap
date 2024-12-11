@@ -9,7 +9,7 @@ OBJ_DIR = obj
 
 VPATH 	= src
 
-SOURCES = main.c stack_util.c stack_actions.c stack_actions_2.c math_utils.c algorithms.c stack_util_2.c
+SOURCES = main.c push_swap.c stack.c stack_util.c stack_util_2.c stack_actions.c stack_actions_2.c math_utils.c algorithms.c
 OBJECTS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
 
 $(NAME): $(OBJECTS) libft.a

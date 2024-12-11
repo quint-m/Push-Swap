@@ -6,13 +6,13 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:58:39 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 17:43:07 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 18:04:37 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	calculate_rotations(int num, t_stack *stack)
+int	calculate_rotations(int num, t_stack *stack)
 {
 	t_data	*current;
 	int		pos_top;
@@ -38,15 +38,8 @@ static int	calculate_cost(int a_index, t_stack *a, t_stack *b)
 	int		rot_a;
 	int		rot_b;
 	int		overlap;
-	int		i;
 
-	a_data = a->head;
-	i = 0;
-	while (i < a_index && a_data->next)
-	{
-		a_data = a_data->next;
-		i++;
-	}
+	a_data = ft_stackat(a_index, a);
 	rot_a = calculate_rotations(a_data->val, a);
 	if (a_data->val > ft_stackmax(b) || a_data->val < ft_stackmin(b))
 		rot_b = calculate_rotations(ft_stackmax(b), b);
@@ -94,26 +87,17 @@ int	cheapest_index(t_stack *a, t_stack *b)
 void	move(t_stack *a, t_stack *b, int idx)
 {
 	t_data	*a_data;
-	int		i;
 	int		rot_a;
 	int		rot_b;
 	int		overlap;
 	int		sign;
 
-	a_data = a->head;
-	i = 0;
-	while (i < idx && a_data->next)
-	{
-		a_data = a_data->next;
-		i++;
-	}
+	a_data = ft_stackat(idx, a);
 	rot_a = calculate_rotations(a_data->val, a);
 	if (a_data->val > ft_stackmax(b) || a_data->val < ft_stackmin(b))
 		rot_b = calculate_rotations(ft_stackmax(b), b);
 	else
-	{
 		rot_b = calculate_rotations(ft_stackpos(a_data->val, b), b);
-	}
 	overlap = 0;
 	sign = 1;
 	if ((rot_a > 0 && rot_b > 0)

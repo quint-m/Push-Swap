@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:03:28 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 13:54:48 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:55:45 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ void	rr(t_stack *a, t_stack *b)
 	rotate(a);
 	rotate(b);
 }
-

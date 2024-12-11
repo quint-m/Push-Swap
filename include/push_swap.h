@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 17:48:00 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 18:04:49 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 	size_t	size;
 }				t_stack;
 
+void	sort(t_stack *a);
 void	push(t_stack *stack, long val);
 void	pop(t_stack *stack);
 void	swap(t_stack *stack);
@@ -48,9 +49,10 @@ void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 int		ft_stackmax(t_stack *stack);
 int		ft_stackmin(t_stack *stack);
-int		ft_stackpos(int	num, t_stack *stack);
+int		ft_stackpos(int num, t_stack *stack);
 int		ft_rstackpos(int num, t_stack *stack);
 void	ft_stackfree(t_stack *stack);
+t_data	*ft_stackat(int t_i, t_stack *stack);
 /*
  *	Math utils
  */
@@ -61,6 +63,7 @@ int		ft_sign(int a);
 /*
  *	Algorithm utils
  */
+int		calculate_rotations(int num, t_stack *stack);
 int		cheapest_index(t_stack *a, t_stack *b);
 void	move(t_stack *a, t_stack *b, int idx);
 void	push_back(t_stack *a, t_stack *b);
