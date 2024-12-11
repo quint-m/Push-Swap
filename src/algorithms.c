@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:58:39 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 15:35:11 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 16:51:39 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	cheapest_index(t_stack *a, t_stack *b)
 	return (cheapest);
 }
 
-int	move(t_stack *a, t_stack *b, int idx)
+void	move(t_stack *a, t_stack *b, int idx)
 {
 	t_data	*a_data;
 	int		i;
@@ -125,8 +125,6 @@ int	move(t_stack *a, t_stack *b, int idx)
 		rot_b -= overlap * sign;
 		overlap *= sign;
 	}
-	
-	
 	while (overlap < 0)
 	{
 		rrr(a, b);
@@ -139,5 +137,48 @@ int	move(t_stack *a, t_stack *b, int idx)
 	while (rot_b-- > 0)
 		ra(b);
 	pb(a, b);
-		
+}
+
+static int		find_next(t_stack *t, int num)
+{
+	int		idx;
+	int		c_dist;
+	t_data	*current;
+	
+	idx = 0;
+	c_dist = 19999;
+	current = t->head;
+	while(current)
+	{
+		if (current->val > num && c_dist > current->val - num)
+		{
+			c_dist = current->val - num;
+			idx = current->val;
+		}
+		current = current->next;
+	}
+	return (idx);
+}
+
+void	push_back(t_stack *a, t_stack *b)
+{
+	int		rot_a;
+	int		next;
+	t_data	*current;
+
+	while (b->size > 0)
+	{
+		rot_a = calculate_rotations(find_next(a, b->head->val), a);
+		while (rot_a > 0)
+		{
+			ra(a);
+			rot_a--;
+		}
+		while (rot_a < 0)
+		{
+			rra(a);
+			rot_a++;
+		}
+		pa(a, b);
+	}
 }

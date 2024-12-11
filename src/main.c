@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:40:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 15:38:22 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 16:34:20 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,31 +66,56 @@ static void	print_stacks(t_stack *a, t_stack *b)
 	ft_printf("===\na b\n");
 }
 
-static t_stack	*sort(t_stack *a)
+static void	sort_three(t_stack *t)
+{
+	int	min;
+	int	max;
+
+	min = ft_stackmin(t);
+	max = ft_stackmax(t);
+	if (t->head->next->next->val == max && t->head->val == min)
+		return;
+	if (t->head->next->next->val == min)
+		rra(t);
+	if (t->head->val == max)
+		ra(t);
+	if (t->head->next->next->val == max && t->head->val != min)
+		sa(t);
+	if (t->head->val == min && t->head->next->next->val != max)
+	{
+		sa(t);
+		ra(t);
+	}
+}
+
+static void	sort(t_stack *a)
 {
 	t_stack	*b;
 	int		next;
 
+	if (a->size == 3)
+	{
+		sort_three(a);
+		return ;
+	}
 	b = ft_calloc(1, sizeof(*a));
 	if (!b)
-		return (NULL);
+		return ;
 	pb(a, b);
 	pb(a, b);
-	print_stacks(a, b);
 	while (a->size > 3)
 	{
-		ft_printf("\n");
 		next = cheapest_index(a, b);
 		move(a, b, next);
-		print_stacks(a, b);
 	}
+	sort_three(a);
+	push_back(a, b);
 	print_stacks(a, b);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
-	t_stack	*sorted;
 
 	if (argc < 2)
 		return (1);
@@ -98,6 +123,6 @@ int	main(int argc, char **argv)
 		stack = process_input(ft_split(argv[1], ' '));
 	else if (argc > 2)
 		stack = process_input(++argv);
-	sorted = sort(stack);
+	sort(stack);
 	return (0);
 }

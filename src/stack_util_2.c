@@ -6,13 +6,13 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:25:41 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 15:25:46 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 16:46:04 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stackmin(t_stack *stack)
+int		ft_stackmin(t_stack *stack)
 {
 	int		min;
 	t_data	*current;
@@ -29,7 +29,7 @@ int	ft_stackmin(t_stack *stack)
 }
 
 // calculate where in stack the number num should go
-int	ft_stackpos(int	num, t_stack *stack)
+int		ft_stackpos(int	num, t_stack *stack)
 {
 	int		i;
 	int		dist;

@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:52:09 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 13:54:29 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 16:14:53 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ void	rrr(t_stack *a, t_stack *b)
 	write(1, "rrr\n", 4);
 	r_rotate(a);
 	r_rotate(b);
+}
+
+void	rra(t_stack *a)
+{
+	write(1, "rrr\n", 4);
+	r_rotate(a);
 }
