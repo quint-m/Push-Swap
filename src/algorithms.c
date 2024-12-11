@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:58:39 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 16:51:39 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:43:07 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,27 +139,6 @@ void	move(t_stack *a, t_stack *b, int idx)
 	pb(a, b);
 }
 
-static int		find_next(t_stack *t, int num)
-{
-	int		idx;
-	int		c_dist;
-	t_data	*current;
-	
-	idx = 0;
-	c_dist = 19999;
-	current = t->head;
-	while(current)
-	{
-		if (current->val > num && c_dist > current->val - num)
-		{
-			c_dist = current->val - num;
-			idx = current->val;
-		}
-		current = current->next;
-	}
-	return (idx);
-}
-
 void	push_back(t_stack *a, t_stack *b)
 {
 	int		rot_a;
@@ -168,7 +147,7 @@ void	push_back(t_stack *a, t_stack *b)
 
 	while (b->size > 0)
 	{
-		rot_a = calculate_rotations(find_next(a, b->head->val), a);
+		rot_a = calculate_rotations(ft_rstackpos(b->head->val, a), a);
 		while (rot_a > 0)
 		{
 			ra(a);

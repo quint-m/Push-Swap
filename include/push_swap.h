@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 16:33:17 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:41:31 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		ft_sign(int a);
 int		ft_stackmax(t_stack *stack);
 int		ft_stackmin(t_stack *stack);
 int		ft_stackpos(int	num, t_stack *stack);
+int		ft_rstackpos(int num, t_stack *stack);
 /*
  *	Algorithm utils
  */
