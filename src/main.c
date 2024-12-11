@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 17:40:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 16:34:20 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:48:43 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ static void	sort(t_stack *a)
 	sort_three(a);
 	push_back(a, b);
 	print_stacks(a, b);
+	ft_stackfree(b);
 }
 
 int	main(int argc, char **argv)
@@ -124,5 +125,6 @@ int	main(int argc, char **argv)
 	else if (argc > 2)
 		stack = process_input(++argv);
 	sort(stack);
+	ft_stackfree(stack);
 	return (0);
 }

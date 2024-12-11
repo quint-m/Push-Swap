@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 17:41:31 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:48:00 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	pa(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
+int		ft_stackmax(t_stack *stack);
+int		ft_stackmin(t_stack *stack);
+int		ft_stackpos(int	num, t_stack *stack);
+int		ft_rstackpos(int num, t_stack *stack);
+void	ft_stackfree(t_stack *stack);
 /*
  *	Math utils
  */
@@ -53,10 +58,6 @@ int		ft_abs(int a);
 int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 int		ft_sign(int a);
-int		ft_stackmax(t_stack *stack);
-int		ft_stackmin(t_stack *stack);
-int		ft_stackpos(int	num, t_stack *stack);
-int		ft_rstackpos(int num, t_stack *stack);
 /*
  *	Algorithm utils
  */

@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:25:41 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 17:45:05 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:47:43 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,19 @@ int		ft_rstackpos(int num, t_stack *stack)
 		current = current->next;
 	}
 	return (i);
+}
+
+void	ft_stackfree(t_stack *stack)
+{
+	t_data	*current;
+	t_data	*last;
+
+	current = stack->head;
+	while (current)
+	{
+		last = current;
+		current = current->next;
+		free(last);
+	}
+	free(stack);
 }
