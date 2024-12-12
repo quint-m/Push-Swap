@@ -81,6 +81,21 @@ static void		rot(int i, t_stack *a, t_stack *b)
 		else
 			rr(a, b);
 		r_overlap--;
+		//TODO: Check this if it's right
+		a_rot -= ft_sign(a_rot);
+		b_rot -= ft_sign(b_rot);
+	}
+	while (a_rot != 0)
+	{
+		//TODO: Check this if it's right
+		ra(a);
+		a_rot -= ft_sign(a_rot);
+	}
+	while (b_rot != 0)
+	{
+		//TODO: Check this if it's right
+		rb(b);
+		b_rot -= ft_sign(b_rot);
 	}
 }
 
@@ -92,6 +107,7 @@ t_stack		*sort(t_stack *a)
 	b = malloc(sizeof(t_stack));
 	if (!b)
 		return (NULL);
+	/*
 	pb(a, b);
 	pb(a, b);
 	next = find_next(a, b);
@@ -100,6 +116,11 @@ t_stack		*sort(t_stack *a)
 	pb(a, b);
 	next = find_next(a, b);
 	rot(next, a, b);
+	pb(a, b);
+	next = find_next(a, b);
+	rot(next, a, b);
+	*/
+	pb(a, b);
 	pb(a, b);
 	next = find_next(a, b);
 	rot(next, a, b);
