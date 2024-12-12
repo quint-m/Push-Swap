@@ -47,12 +47,6 @@ void	pa(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
-int		ft_stackmax(t_stack *stack);
-int		ft_stackmin(t_stack *stack);
-int		ft_stackpos(int num, t_stack *stack);
-int		ft_rstackpos(int num, t_stack *stack);
-void	ft_stackfree(t_stack *stack);
-t_data	*ft_stackat(int t_i, t_stack *stack);
 /*
  *	Math utils
  */
@@ -60,12 +54,4 @@ int		ft_abs(int a);
 int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 int		ft_sign(int a);
-/*
- *	Algorithm utils
- */
-int		calculate_rotations(int num, t_stack *stack);
-int		cheapest_index(t_stack *a, t_stack *b);
-void	move(t_stack *a, t_stack *b, int idx);
-void	push_back(t_stack *a, t_stack *b);
-
 #endif
