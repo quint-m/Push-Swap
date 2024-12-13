@@ -67,10 +67,8 @@ static void		rot(int i, t_stack *a, t_stack *b)
 
 	a_val = stack_at(i, a);
 	a_rot = st_rotations(a_val, a);
-	if (a_val > stack_max(b))
+	if (a_val >= stack_max(b) || a_val <= stack_min(b))
 		b_rot = st_rotations(stack_max(b), b);
-	else if (a_val < stack_min(b))
-		b_rot = st_rotations(stack_min(b), b);
 	else
 		b_rot = st_rotations(st_closest(a_val, b), b);
 	r_overlap = rot_overlap(a_rot, b_rot);
@@ -107,27 +105,14 @@ t_stack		*sort(t_stack *a)
 	b = malloc(sizeof(t_stack));
 	if (!b)
 		return (NULL);
-	/*
 	pb(a, b);
 	pb(a, b);
-	next = find_next(a, b);
-	rot(next, a, b);
-	pb(a, b);
-	pb(a, b);
-	next = find_next(a, b);
-	rot(next, a, b);
-	pb(a, b);
-	next = find_next(a, b);
-	rot(next, a, b);
-	*/
-	pb(a, b);
-	pb(a, b);
-	next = find_next(a, b);
-	rot(next, a, b);
-
-	//sort_a(a);
-	ft_printf("next to move is at index %i\n", next);
 	debug_stacks(a, b);
-	free_stack(b);
+
+	next = find_next(a, b);
+	ft_printf("next to move is at index %i\n", next);
+//	sort_a(a)
+//	debug_stacks(a, b);
+//	free_stack(b);
 	return (a);
 }

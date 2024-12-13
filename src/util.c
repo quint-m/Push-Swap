@@ -41,7 +41,7 @@ void	debug_stacks(t_stack *a, t_stack *b)
 		a_cur = a_cur->next;
 		b_cur = b_cur->next;
 	}
-	ft_printf("=====\na  b");
+	ft_printf("=====\na  b\n");
 }
 
 int		stack_max(t_stack *stack)
@@ -79,14 +79,20 @@ int		stack_min(t_stack *stack)
 int		stack_at(int i, t_stack *stack)
 {
 	t_data	*current;
-	
+	int		val_at;
+
+	if (i >= stack->size)
+		return (-1);	
 	current = stack->head;
+	val_at = current->val;
 	while (i > 0 && current)
 	{
 		current = current->next;
+		val_at = current->val;
 		i--;
 	}
-	return (current->val);
+	
+	return (val_at);
 }
 
 int		st_indexof(int n, t_stack *stack)
