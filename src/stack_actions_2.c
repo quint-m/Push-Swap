@@ -40,6 +40,6 @@ void	rrr(t_stack *a, t_stack *b)
 
 void	rra(t_stack *a)
 {
-	write(1, "rrr\n", 4);
+	write(1, "rra\n", 4);
 	r_rotate(a);
 }

@@ -25,6 +25,8 @@ static void	sort_a(t_stack *a)
 	{
 		if (a->head->val != s_min && a->head->val != s_max)
 			sa(a);
+		if (a->head->val == s_min && a->head->next->next->val != s_max)
+			sa(a);
 		if (a->head->val == s_max)
 			ra(a);
 		if (a->head->next->next->val == s_min)
@@ -83,17 +85,25 @@ static void		rot(int i, t_stack *a, t_stack *b)
 		a_rot -= ft_sign(a_rot);
 		b_rot -= ft_sign(b_rot);
 	}
-	while (a_rot != 0)
+	while (a_rot > 0)
 	{
-		//TODO: Check this if it's right
 		ra(a);
-		a_rot -= ft_sign(a_rot);
+		a_rot--;
 	}
-	while (b_rot != 0)
+	while (a_rot < 0)
 	{
-		//TODO: Check this if it's right
+		rra(a);
+		a_rot++;
+	}
+	while (b_rot > 0)
+	{
 		rb(b);
-		b_rot -= ft_sign(b_rot);
+		b_rot--;
+	}
+	while (b_rot < 0)
+	{
+		rra(b);
+		b_rot ++;
 	}
 }
 
@@ -107,12 +117,35 @@ t_stack		*sort(t_stack *a)
 		return (NULL);
 	pb(a, b);
 	pb(a, b);
+	while (a->size > 3)
+	{
+		next = find_next(a, b);
+		rot(next, a, b);
+		pb(a, b);
+	}
+	sort_a(a);
 	debug_stacks(a, b);
 
-	next = find_next(a, b);
-	ft_printf("next to move is at index %i\n", next);
-//	sort_a(a)
-//	debug_stacks(a, b);
+	next = find_next(b, a);
+	ft_printf("next to move is %i\n", next);
+	rot(next, b, a);
+	pa(a, b);
+	debug_stacks(a, b);
+	
+	next = find_next(b, a);
+	ft_printf("next to move is %i\n", next);
+	rot(next, b, a);
+	pa(a, b);
+	debug_stacks(a, b);
+	//
+	next = find_next(b, a);
+	ft_printf("next to move is %i\n", next);
+	rot(next, b, a);
+	pa(a, b);
+	debug_stacks(a, b);
+	next = find_next(b, a);
+	ft_printf("next to move is %i\n", next);
+	rot(next, b, a);
 //	free_stack(b);
 	return (a);
 }
