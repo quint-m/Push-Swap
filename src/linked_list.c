@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_actions_2.c                                  :+:      :+:    :+:   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 13:52:09 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 17:55:35 by qmennen          ###   ########.fr       */
+/*   Created: 2024/12/17 17:50:02 by qmennen           #+#    #+#             */
+/*   Updated: 2024/12/17 17:52:33 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+t_stack_item	*ft_newnode(long val)
 {
-	write(1, "sa\n", 3);
-	swap(a);
-}
+	t_stack_item	*res;
 
-void	sb(t_stack *b)
-{
-	write(1, "sa\n", 3);
-	swap(b);
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	write(1, "ss\n", 3);
-	swap(a);
-	swap(b);
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	write(1, "rrr\n", 4);
-	r_rotate(a);
-	r_rotate(b);
-}
-
-void	rra(t_stack *a)
-{
-	write(1, "rra\n", 4);
-	r_rotate(a);
+	res = malloc(sizeof(t_stack_item));
+	if (!res)
+		return (NULL);
+	res->next = NULL;
+	res->content = val;
+	return (res);
 }

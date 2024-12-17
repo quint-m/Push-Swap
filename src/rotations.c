@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_utils.c                                       :+:      :+:    :+:   */
+/*   rotations.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 11:06:54 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/11 17:45:22 by qmennen          ###   ########.fr       */
+/*   Created: 2024/12/17 18:08:11 by qmennen           #+#    #+#             */
+/*   Updated: 2024/12/17 18:09:28 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_abs(int a)
+void	ft_rotate_a(t_stacks *stacks)
 {
-	if (a < 0)
-		return (-a);
-	else
-		return (a);
+
 }
 
-int	ft_min(int a, int b)
+void	ft_rotate_b(t_stacks *stacks)
 {
-	if (a > b)
-		return (b);
-	else
-		return (a);
 }
 
-int	ft_max(int a, int b)
+void	rotate(t_stacks *stacks, char c)
 {
-	if (a < b)
-		return (b);
-	else
-		return (a);
-}
 
-int	ft_sign(int a)
-{
-	if (a == 0)
-		return (0);
-	return (a / ft_abs(a));
 }

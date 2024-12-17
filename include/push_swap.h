@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/12 15:41:01 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/17 18:05:31 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,22 @@
 # include "libft.h"
 # include <stddef.h>
 
-typedef struct s_data
+typedef struct	t_stack_item
 {
-	long			val;
-	struct s_data	*next;
-}				t_data;
+	long				content;
+	struct t_stack_item	*next;
+}				t_stack_item;
 
-typedef struct s_stack
+typedef struct	t_stacks
 {
-	t_data	*head;
-	size_t	size;
-}				t_stack;
+	struct t_stack_item	*a_head;
+	struct t_stack_item	*b_head;
+}				t_stacks;
 
-t_stack	*sort(t_stack *a);
-void	push(t_stack *stack, long val);
-void	pop(t_stack *stack);
-void	swap(t_stack *stack);
-void	rotate(t_stack *stack);
-void	r_rotate(t_stack *stack);
-/*
- *	Stack utils
- */
-void	rrr(t_stack *a, t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rra(t_stack *a);
-void	rb(t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-int		stack_max(t_stack *stack);
-int		stack_min(t_stack *stack);
-int		stack_at(int i, t_stack *stack);
-int		st_indexof(int n, t_stack *stack);
-void	free_stack(t_stack *stack);
-/*
- * Calculations
- */
-int	st_rotations(int n, t_stack *stack);
-int	rot_overlap(int a_rot, int b_rot);
-int	st_closest(int n, t_stack *stack);
-int	cost(int a_idx, t_stack *a, t_stack *b);
-/*
- *	Math utils
- */
-int		ft_abs(int a);
-int		ft_min(int a, int b);
-int		ft_max(int a, int b);
-int		ft_sign(int a);
-/*
- * Utils
- */
-void	debug_stacks(t_stack *a, t_stack *b);
+
+
+void			push(t_stacks *stacks, char c);
+t_stack_item	*create_a_stack(char **argv);
+t_stack_item	*ft_newnode(long val);
+
 #endif

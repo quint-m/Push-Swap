@@ -5,38 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 17:51:49 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/12 12:52:11 by qmennen          ###   ########.fr       */
+/*   Created: 2024/12/17 17:32:33 by qmennen           #+#    #+#             */
+/*   Updated: 2024/12/17 18:06:04 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-static t_stack	*process_input(char **input)
+t_stack_item	*create_a_stack(char **argv)
 {
-	t_stack	*result;
+	int				i;
+	t_stack_item	*a_stack;
+	t_stack_item	*tmp;
 
-	result = ft_calloc(1, sizeof(t_stack));
-	if (!result)
-		return (NULL);
-	while (*input)
-		push(result, ft_atoi(*(input++)));
-	return (result);
+	i = 0;
+	a_stack = ft_newnode(ft_atoi(argv[i++]));
+	tmp = a_stack;
+	while (argv[i])
+	{
+		tmp->next = ft_newnode(ft_atoi(argv[i]));
+		tmp = tmp->next;
+		tmp->next = NULL;
+		i++;
+	}
+	return (a_stack);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack;
+	t_stacks	stacks;
+	t_stack_item	*temp;
 
-	if (argc < 2)
-		return (1);
 	if (argc == 2)
-		stack = process_input(ft_split(argv[1], ' '));
-	else if (argc > 2)
-		stack = process_input(++argv);
-	stack = sort(stack);
-	free_stack(stack);
+		stacks.a_head = create_a_stack(ft_split(argv[1], ' '));
+	else
+		stacks.a_head = create_a_stack(++argv);
+	stacks.b_head = NULL;
+
+	temp = stacks.a_head;
+	while(temp)
+	{
+		ft_printf("val: %i\n", temp->content);
+		temp = temp->next;
+	}
+
 	return (0);
 }
