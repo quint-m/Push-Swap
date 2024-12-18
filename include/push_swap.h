@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:59:09 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/18 19:27:33 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,25 @@ typedef struct	t_moves
 	int	sb;
 	int	ss;
 }				t_moves;
-
-
+/*
+ * Stack operations
+ */
 void			ft_rotate(t_stacks *stacks, char c);
 void			ft_rev_rotate(t_stacks *stacks, char c);
 void			ft_swap(t_stacks *stacks, char c);
 void			ft_push(t_stacks *stacks, char c);
+/*
+ * Algorithm functions
+ */
 void			sorting(t_stacks *stacks);
+void			move_cheapest(t_stacks *stacks);
+/*
+ * Stack helper
+ */
 t_stack_item	*create_a_stack(char **argv);
 t_stack_item	*ft_newnode(long val);
 int				ft_listsize(t_stack_item *list);
 void			ft_print_list(t_stacks *stacks, char c);
+void			min_max(t_stacks *stacks, char c);
 
 #endif
