@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:32:33 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/17 18:06:04 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:35:15 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 		stacks.a_head = create_a_stack(++argv);
 	stacks.b_head = NULL;
 
-	ft_rotate(&stacks, 'a');
+	ft_rev_rotate(&stacks, 'a');
 	temp = stacks.a_head;
 	while(temp)
 	{
