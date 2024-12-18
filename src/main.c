@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 		stacks.a_head = create_a_stack(++argv);
 	stacks.b_head = NULL;
 
+	ft_rotate(&stacks, 'a');
 	temp = stacks.a_head;
 	while(temp)
 	{

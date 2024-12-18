@@ -30,6 +30,7 @@ typedef struct	t_stacks
 
 
 
+void			ft_rotate(t_stacks *stacks, char c);
 void			push(t_stacks *stacks, char c);
 t_stack_item	*create_a_stack(char **argv);
 t_stack_item	*ft_newnode(long val);
