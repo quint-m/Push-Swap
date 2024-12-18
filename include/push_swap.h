@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:34:19 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:41:16 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct	t_stacks
 
 void			ft_rotate(t_stacks *stacks, char c);
 void			ft_rev_rotate(t_stacks *stacks, char c);
-void			push(t_stacks *stacks, char c);
+void			ft_swap(t_stacks *stacks, char c);
+void			ft_push(t_stacks *stacks, char c);
 t_stack_item	*create_a_stack(char **argv);
 t_stack_item	*ft_newnode(long val);
 

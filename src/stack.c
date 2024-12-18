@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:32:58 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/17 18:08:02 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:41:24 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	push_b(t_stacks *stacks)
 	ft_printf("pb\n");
 }
 
-void	push(t_stacks *stacks, char c)
+void	ft_push(t_stacks *stacks, char c)
 {
 	if (c == 'b')
 		push_b(stacks);
