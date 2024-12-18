@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:41:16 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:59:09 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,50 @@
 
 typedef struct	t_stack_item
 {
-	long				content;
-	struct t_stack_item	*next;
+	long					content;
+	struct	t_stack_item	*next;
 }				t_stack_item;
 
 typedef struct	t_stacks
 {
-	struct t_stack_item	*a_head;
-	struct t_stack_item	*b_head;
+	struct	t_stack_item	*a_head;
+	struct	t_stack_item	*b_head;
+	struct	t_values		*values;
+	struct	t_moves			*moves;
 }				t_stacks;
 
+typedef struct	t_values
+{
+	long	a_min;
+	long	a_max;
+	long	b_min;
+	long	b_max;
+}				t_values;
+
+typedef struct	t_moves
+{
+	int	cost;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	sa;
+	int	sb;
+	int	ss;
+}				t_moves;
 
 
 void			ft_rotate(t_stacks *stacks, char c);
 void			ft_rev_rotate(t_stacks *stacks, char c);
 void			ft_swap(t_stacks *stacks, char c);
 void			ft_push(t_stacks *stacks, char c);
+void			sorting(t_stacks *stacks);
 t_stack_item	*create_a_stack(char **argv);
 t_stack_item	*ft_newnode(long val);
+int				ft_listsize(t_stack_item *list);
+void			ft_print_list(t_stacks *stacks, char c);
 
 #endif

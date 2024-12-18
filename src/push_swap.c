@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:32:33 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:42:15 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:44:49 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,12 @@ t_stack_item	*create_a_stack(char **argv)
 int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
-	t_stack_item	*temp;
 
 	if (argc == 2)
 		stacks.a_head = create_a_stack(ft_split(argv[1], ' '));
 	else
 		stacks.a_head = create_a_stack(++argv);
 	stacks.b_head = NULL;
-
-	//ft_rev_rotate(&stacks, 'a');
-	ft_swap(&stacks, 'a');	
-	ft_push(&stacks, 'b');
-	temp = stacks.a_head;
-	while(temp)
-	{
-		ft_printf("val: %i\n", temp->content);
-		temp = temp->next;
-	}
-
+	sorting(&stacks);
 	return (0);
 }

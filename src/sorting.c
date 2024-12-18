@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list.c                                      :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:50:02 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:58:53 by qmennen          ###   ########.fr       */
+/*   Created: 2024/12/18 12:43:58 by qmennen           #+#    #+#             */
+/*   Updated: 2024/12/18 12:49:34 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack_item	*ft_newnode(long val)
+void	sorting(t_stacks *stacks)
 {
-	t_stack_item	*res;
+	ft_push(stacks, 'b');
+	ft_push(stacks, 'b');
 
-	res = malloc(sizeof(t_stack_item));
-	if (!res)
-		return (NULL);
-	res->next = NULL;
-	res->content = val;
-	return (res);
-}
-
-int				ft_listsize(t_stack_item *list)
-{
-	int				size;
-	t_stack_item	*tail;
-
-	size = 0;
-	tail = list;
-	while(tail)
-	{
-		size++;
-		tail = tail->next;
-	}
-	return (size);
+	ft_print_list(stacks, ' ');
 }
