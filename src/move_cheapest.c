@@ -24,6 +24,8 @@ void	move_cheapest(t_stacks *stacks)
 
 	while (ft_listsize(stacks->a_head) > 3)
 	{
-
+		min_max(stacks, 'b');
+		ft_printf("min b %i, max b %i", stacks->values->b_min, stacks->values->b_max);
+		break;
 	}
 }
