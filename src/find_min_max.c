@@ -67,6 +67,7 @@ static void	find_max_a(t_stack_item *a_head, t_stacks *stacks)
 		current = current->next;
 	}
 }
+
 void	min_max(t_stacks *stacks, char c)
 {
 	if (c == 'b' && stacks->b_head != NULL)
