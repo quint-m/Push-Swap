@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 19:27:33 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/24 10:35:42 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ void			ft_push(t_stacks *stacks, char c);
 /*
  * Algorithm functions
  */
+void			check_moves(t_stacks *stacks);
+void			new_max_min_b(t_stacks *stacks);
+int				find_index_b(t_stacks *stacks, long num);
+void			get_top_of_a(t_stacks *stacks, t_stack_item *a_head, int i);
 void			sorting(t_stacks *stacks);
 void			move_cheapest(t_stacks *stacks);
 /*

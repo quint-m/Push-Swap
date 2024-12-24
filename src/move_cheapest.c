@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:15:28 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 19:17:50 by qmennen          ###   ########.fr       */
+/*   Updated: 2024/12/24 10:38:23 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	move_cheapest(t_stacks *stacks)
 	while (ft_listsize(stacks->a_head) > 3)
 	{
 		min_max(stacks, 'b');
+		check_moves(stacks);
 		break;
 	}
 }
