@@ -29,10 +29,32 @@ void	check_moves(t_stacks *stacks)
 			new_max_min_b(stacks);
 		else
 			new_num_b(stacks, a_head->content);
-		ft_printf("for I %i: ra %i, rra %i, rb %i, rrb %i", i, stacks->moves->ra, stacks->moves->rra, stacks->moves->rb, stacks->moves->rrb);
 		a_head = a_head->next;
-	solve_doubles(stacks);
-	ft_printf(" | rr %i, rrr %i\n", stacks->moves->rr, stacks->moves->rrr);
+		solve_doubles(stacks);
+		calculate_cost(stacks, i);
+	}
+}
+
+void	calculate_cost(t_stacks *stacks, int i)
+{
+	stacks->moves->cost = stacks->moves->pb + stacks->moves->ra + stacks->moves->rb + stacks->moves->rra + stacks->moves->rrb + stacks->moves->rr + stacks->moves->rrr;
+
+	if (i == 1 || (stacks->cheap->cost > stacks->moves->cost))
+	{
+		stacks->cheap->cost = stacks->moves->cost;
+		stacks->cheap->ra = stacks->moves->ra;
+		stacks->cheap->rb = stacks->moves->rb;
+		stacks->cheap->rra = stacks->moves->rra;
+		stacks->cheap->rrb = stacks->moves->rrb;
+		stacks->cheap->rrr = stacks->moves->rrr;
+		stacks->cheap->rr = stacks->moves->rr;
+		stacks->cheap->pb = stacks->moves->pb;
+		ft_printf("--- cheapest(%i)---\n", i);
+		ft_printf("ra %i rb: %i\n", stacks->cheap->ra, stacks->cheap->rb);
+		ft_printf("rra %i rrb: %i\n", stacks->cheap->rra, stacks->cheap->rrb);
+		ft_printf("rr %i rrr: %i\n", stacks->cheap->rr, stacks->cheap->rrr);
+		ft_printf("pb %i\n", stacks->cheap->pb);
+		ft_printf("------------------\n");
 	}
 }
 

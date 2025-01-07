@@ -28,6 +28,7 @@ typedef struct	t_stacks
 	struct	t_stack_item	*b_head;
 	struct	t_values		*values;
 	struct	t_moves			*moves;
+	struct	t_moves			*cheap;
 }				t_stacks;
 
 typedef struct	t_values
@@ -70,6 +71,8 @@ void			get_top_of_a(t_stacks *stacks, t_stack_item *a_head, int i);
 void			sorting(t_stacks *stacks);
 void			move_cheapest(t_stacks *stacks);
 void			solve_doubles(t_stacks *stacks);
+void			calculate_cost(t_stacks *stacks, int i);
+void			do_cheap_moves(t_stacks *stacks);
 /*
  * Stack helper
  */
