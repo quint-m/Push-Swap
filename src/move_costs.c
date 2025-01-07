@@ -6,11 +6,21 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 10:12:19 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 18:16:19 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:23:15 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	print_cheapest(t_stacks *stacks, int i)
+{
+	ft_printf("--- cheapest(%i)---\n", i);
+	ft_printf("ra %i rb: %i\n", stacks->cheap->ra, stacks->cheap->rb);
+	ft_printf("rra %i rrb: %i\n", stacks->cheap->rra, stacks->cheap->rrb);
+	ft_printf("rr %i rrr: %i\n", stacks->cheap->rr, stacks->cheap->rrr);
+	ft_printf("pb %i\n", stacks->cheap->pb);
+	ft_printf("------------------\n");
+}
 
 void	check_moves(t_stacks *stacks)
 {
@@ -49,12 +59,7 @@ void	calculate_cost(t_stacks *stacks, int i)
 		stacks->cheap->rrr = stacks->moves->rrr;
 		stacks->cheap->rr = stacks->moves->rr;
 		stacks->cheap->pb = stacks->moves->pb;
-		ft_printf("--- cheapest(%i)---\n", i);
-		ft_printf("ra %i rb: %i\n", stacks->cheap->ra, stacks->cheap->rb);
-		ft_printf("rra %i rrb: %i\n", stacks->cheap->rra, stacks->cheap->rrb);
-		ft_printf("rr %i rrr: %i\n", stacks->cheap->rr, stacks->cheap->rrr);
-		ft_printf("pb %i\n", stacks->cheap->pb);
-		ft_printf("------------------\n");
+		//print_cheapest(stacks, i);
 	}
 }
 
