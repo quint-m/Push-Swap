@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:46:44 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:50:38 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:28:18 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_print_a(t_stack_item *a_head)
 	t_stack_item	*current;
 
 	current = a_head;
-	while(current)
+	while (current)
 	{
 		ft_printf("%i\n", current->content);
 		current = current->next;
@@ -30,7 +30,7 @@ static void	ft_print_b(t_stack_item *b_head)
 	t_stack_item	*current;
 
 	current = b_head;
-	while(current)
+	while (current)
 	{
 		ft_printf("%i\n", current->content);
 		current = current->next;

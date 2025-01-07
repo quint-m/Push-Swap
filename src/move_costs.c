@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 10:12:19 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:23:15 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:26:18 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	check_moves(t_stacks *stacks)
 	while (i++ < size)
 	{
 		get_top_of_a(stacks, a_head, i - 1);
-		if (a_head->content > stacks->values->b_max ||
-			a_head->content < stacks->values->b_min)
+		if (a_head->content > stacks->values->b_max
+			|| a_head->content < stacks->values->b_min)
 			new_max_min_b(stacks);
 		else
 			new_num_b(stacks, a_head->content);
@@ -47,8 +47,9 @@ void	check_moves(t_stacks *stacks)
 
 void	calculate_cost(t_stacks *stacks, int i)
 {
-	stacks->moves->cost = stacks->moves->pb + stacks->moves->ra + stacks->moves->rb + stacks->moves->rra + stacks->moves->rrb + stacks->moves->rr + stacks->moves->rrr;
-
+	stacks->moves->cost = stacks->moves->pb + stacks->moves->ra
+		+ stacks->moves->rb + stacks->moves->rra + stacks->moves->rrb
+		+ stacks->moves->rr + stacks->moves->rrr;
 	if (i == 1 || (stacks->cheap->cost > stacks->moves->cost))
 	{
 		stacks->cheap->cost = stacks->moves->cost;
@@ -67,7 +68,6 @@ void	solve_doubles(t_stacks *stacks)
 {
 	stacks->moves->rr = 0;
 	stacks->moves->rrr = 0;
-
 	while (stacks->moves->rb != 0 && stacks->moves->ra != 0)
 	{
 		stacks->moves->rr++;

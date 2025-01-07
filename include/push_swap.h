@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 18:06:25 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:34:22 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 # include "libft.h"
 # include <stddef.h>
 
-typedef struct	t_stack_item
+typedef struct t_stack_item
 {
 	long					content;
-	struct	t_stack_item	*next;
+	struct t_stack_item		*next;
 }				t_stack_item;
 
-typedef struct	t_stacks
+typedef struct t_stacks
 {
-	struct	t_stack_item	*a_head;
-	struct	t_stack_item	*b_head;
-	struct	t_values		*values;
-	struct	t_moves			*moves;
-	struct	t_moves			*cheap;
+	struct t_stack_item	*a_head;
+	struct t_stack_item	*b_head;
+	struct t_values		*values;
+	struct t_moves		*moves;
+	struct t_moves		*cheap;
 }				t_stacks;
 
-typedef struct	t_values
+typedef struct t_values
 {
 	long	a_min;
 	long	a_max;
@@ -39,7 +39,7 @@ typedef struct	t_values
 	long	b_max;
 }				t_values;
 
-typedef struct	t_moves
+typedef struct t_moves
 {
 	int	cost;
 	int	pa;

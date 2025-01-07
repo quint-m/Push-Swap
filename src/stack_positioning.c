@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 10:21:52 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/24 10:34:47 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:27:11 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	new_num_b(t_stacks *stacks, long num)
 	stacks->moves->rrb = 0;
 	nbr = search_num_b(stacks, num);
 	if (stacks->b_head->content == nbr)
-		return;
+		return ;
 	i = find_index_b(stacks, nbr);
 	size = ft_listsize(stacks->b_head);
 	if (i > size / 2)

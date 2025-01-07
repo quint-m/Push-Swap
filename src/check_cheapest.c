@@ -6,13 +6,13 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:34:52 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/19 11:39:10 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:26:53 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		find_index_b(t_stacks *stacks, long num)
+int	find_index_b(t_stacks *stacks, long num)
 {
 	int				i;
 	int				size;
@@ -31,12 +31,12 @@ int		find_index_b(t_stacks *stacks, long num)
 	return (i);
 }
 
-long     search_num_b(t_stacks *stacks, long num)
+long	search_num_b(t_stacks *stacks, long num)
 {
 	t_stack_item	*head_b;
-	int			size;
-	int			flag;
-	int			i;
+	int				size;
+	int				flag;
+	int				i;
 
 	i = 0;
 	flag = 0;

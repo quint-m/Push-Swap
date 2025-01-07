@@ -6,22 +6,21 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:25:56 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:34:07 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:30:13 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static void	ft_rev_rotate_a(t_stacks *stacks, int print)
 {
 	t_stack_item	*tail;
 	t_stack_item	*previous;
 
-   if (!stacks->a_head || !stacks->a_head->next)
-        return;
-	tail = stacks->a_head;;
-	while(tail->next)
+	if (!stacks->a_head || !stacks->a_head->next)
+		return ;
+	tail = stacks->a_head;
+	while (tail->next)
 	{
 		previous = tail;
 		tail = tail->next;
@@ -38,10 +37,10 @@ static void	ft_rev_rotate_b(t_stacks *stacks, int print)
 	t_stack_item	*tail;
 	t_stack_item	*previous;
 
-   if (!stacks->b_head || !stacks->b_head->next)
-        return;
-	tail = stacks->b_head;;
-	while(tail->next)
+	if (!stacks->b_head || !stacks->b_head->next)
+		return ;
+	tail = stacks->b_head;
+	while (tail->next)
 	{
 		previous = tail;
 		tail = tail->next;

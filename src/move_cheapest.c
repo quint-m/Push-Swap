@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:15:28 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/24 10:38:23 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:27:38 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	move_cheapest(t_stacks *stacks)
 	stacks->cheap = cheap;
 	values = ft_calloc(1, sizeof(t_values));
 	stacks->values = values;
-
 	while (ft_listsize(stacks->a_head) > 3)
 	{
 		min_max(stacks, 'b');
@@ -35,18 +34,18 @@ void	move_cheapest(t_stacks *stacks)
 
 void	do_cheap_moves(t_stacks *stacks)
 {
-	while(stacks->cheap->rb-- > 0)
+	while (stacks->cheap->rb-- > 0)
 		ft_rotate(stacks, 'b');
-	while(stacks->cheap->ra-- > 0)
+	while (stacks->cheap->ra-- > 0)
 		ft_rotate(stacks, 'a');
-	while(stacks->cheap->rrb-- > 0)
+	while (stacks->cheap->rrb-- > 0)
 		ft_rev_rotate(stacks, 'b');
-	while(stacks->cheap->rra-- > 0)
+	while (stacks->cheap->rra-- > 0)
 		ft_rev_rotate(stacks, 'a');
-	while(stacks->cheap->rr-- > 0)
+	while (stacks->cheap->rr-- > 0)
 		ft_rotate(stacks, ' ');
-	while(stacks->cheap->rrr-- > 0)
+	while (stacks->cheap->rrr-- > 0)
 		ft_rev_rotate(stacks, ' ');
-	while(stacks->cheap->pb-- > 0)
+	while (stacks->cheap->pb-- > 0)
 		ft_push(stacks, 'b');
 }

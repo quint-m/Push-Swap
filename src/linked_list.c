@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:50:02 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/18 12:58:53 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:28:02 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ t_stack_item	*ft_newnode(long val)
 	return (res);
 }
 
-int				ft_listsize(t_stack_item *list)
+int	ft_listsize(t_stack_item *list)
 {
 	int				size;
 	t_stack_item	*tail;
 
 	size = 0;
 	tail = list;
-	while(tail)
+	while (tail)
 	{
 		size++;
 		tail = tail->next;
