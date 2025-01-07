@@ -47,6 +47,7 @@ typedef struct	t_moves
 	int	rb;
 	int	rra;
 	int	rrb;
+	int	rr;
 	int	rrr;
 	int	sa;
 	int	sb;
@@ -64,10 +65,11 @@ void			ft_push(t_stacks *stacks, char c);
  */
 void			check_moves(t_stacks *stacks);
 void			new_max_min_b(t_stacks *stacks);
-int				find_index_b(t_stacks *stacks, long num);
+void			new_num_b(t_stacks *stacks, long num);
 void			get_top_of_a(t_stacks *stacks, t_stack_item *a_head, int i);
 void			sorting(t_stacks *stacks);
 void			move_cheapest(t_stacks *stacks);
+void			solve_doubles(t_stacks *stacks);
 /*
  * Stack helper
  */
@@ -76,5 +78,7 @@ t_stack_item	*ft_newnode(long val);
 int				ft_listsize(t_stack_item *list);
 void			ft_print_list(t_stacks *stacks, char c);
 void			min_max(t_stacks *stacks, char c);
+int				find_index_b(t_stacks *stacks, long num);
+long			search_num_b(t_stacks *stacks, long num);
 
 #endif
