@@ -25,15 +25,11 @@ void	move_cheapest(t_stacks *stacks)
 	values = ft_calloc(1, sizeof(t_values));
 	stacks->values = values;
 
-	//TEMP
-	int	i = 0;
-	int max = 4;
 	while (ft_listsize(stacks->a_head) > 3)
 	{
 		min_max(stacks, 'b');
 		check_moves(stacks);
 		do_cheap_moves(stacks);
-		i++;
 	}
 }
 
