@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/24 10:35:42 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 18:06:25 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void			move_cheapest(t_stacks *stacks);
 void			solve_doubles(t_stacks *stacks);
 void			calculate_cost(t_stacks *stacks, int i);
 void			do_cheap_moves(t_stacks *stacks);
+void			sort_three(t_stacks *stacks);
 /*
  * Stack helper
  */

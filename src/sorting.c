@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 12:43:58 by qmennen           #+#    #+#             */
-/*   Updated: 2024/12/24 10:43:04 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:17:38 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	sorting(t_stacks *stacks)
 {
 	ft_push(stacks, 'b');
 	ft_push(stacks, 'b');
-
 	move_cheapest(stacks);
+	sort_three(stacks);
 
 	ft_print_list(stacks, ' ');
 }
