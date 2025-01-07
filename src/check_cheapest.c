@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:34:52 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:26:53 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:44:39 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@ int	find_index_b(t_stacks *stacks, long num)
 	i = 0;
 	current = stacks->b_head;
 	size = ft_listsize(stacks->b_head);
+	while (i < size)
+	{
+		if (current->content == num)
+			return (i);
+		current = current->next;
+		i++;
+	}
+	return (i);
+}
+
+int	find_index_a(t_stacks *stacks, long num)
+{
+	int				i;
+	int				size;
+	t_stack_item	*current;
+
+	i = 0;
+	current = stacks->a_head;
+	size = ft_listsize(stacks->a_head);
 	while (i < size)
 	{
 		if (current->content == num)

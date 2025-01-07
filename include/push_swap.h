@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:34:22 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:52:21 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,19 @@ void			solve_doubles(t_stacks *stacks);
 void			calculate_cost(t_stacks *stacks, int i);
 void			do_cheap_moves(t_stacks *stacks);
 void			sort_three(t_stacks *stacks);
+void			new_max_a(t_stacks *stacks);
+void			new_min_a(t_stacks *stacks);
 /*
  * Stack helper
  */
 t_stack_item	*create_a_stack(char **argv);
 t_stack_item	*ft_newnode(long val);
 int				ft_listsize(t_stack_item *list);
+t_stack_item	*ft_listlast(t_stack_item *list);
 void			ft_print_list(t_stacks *stacks, char c);
 void			min_max(t_stacks *stacks, char c);
 int				find_index_b(t_stacks *stacks, long num);
+int				find_index_a(t_stacks *stacks, long num);
 long			search_num_b(t_stacks *stacks, long num);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:50:02 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:28:02 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:42:40 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,13 @@ int	ft_listsize(t_stack_item *list)
 		tail = tail->next;
 	}
 	return (size);
+}
+
+t_stack_item	*ft_listlast(t_stack_item *list)
+{
+	if (list == NULL)
+		return (NULL);
+	while (list->next != NULL)
+		list = list->next;
+	return (list);
 }
