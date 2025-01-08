@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:50:02 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:42:40 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 13:03:15 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,28 @@ t_stack_item	*ft_listlast(t_stack_item *list)
 	while (list->next != NULL)
 		list = list->next;
 	return (list);
+}
+
+static void			ft_clearlist(t_stack_item *list)
+{
+	t_stack_item	*current;
+	t_stack_item	*last;
+
+	current = list;
+	while (current)
+	{
+		last = current;
+		current = current->next;
+		free(last);
+	}
+	list = NULL;
+}
+
+void		ft_freeall(t_stacks *stacks)
+{
+	ft_clearlist(stacks->a_head);
+	ft_clearlist(stacks->b_head);
+	free(stacks->moves);
+	free(stacks->values);
+	free(stacks->cheap);
 }

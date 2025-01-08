@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/08 12:30:51 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 13:01:17 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,5 @@ int				find_index_b(t_stacks *stacks, long num);
 int				find_index_a(t_stacks *stacks, long num);
 long			search_num_b(t_stacks *stacks, long num);
 long			search_num_a(t_stacks *stacks, long num);
-
+void			ft_freeall(t_stacks *stacks);
 #endif
