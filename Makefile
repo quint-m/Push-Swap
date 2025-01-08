@@ -29,7 +29,6 @@ SRCS        :=      src/stack.c \
                           src/sorting.c \
                           src/rotations.c \
                           src/swap.c \
-                          src/push_to_b.c \
                           src/stack_positioning.c \
                           src/max_min_a.c \
                           src/push_swap.c \
