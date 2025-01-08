@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/08 13:01:17 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 16:11:36 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <stddef.h>
+# include <stdlib.h>
 
 typedef struct t_stack_item
 {
@@ -73,11 +74,14 @@ void			move_cheapest(t_stacks *stacks);
 void			solve_doubles(t_stacks *stacks);
 void			calculate_cost(t_stacks *stacks, int i);
 void			do_cheap_moves(t_stacks *stacks);
-void			sort_three(t_stacks *stacks);
+void			sort_four(t_stacks *stacks);
+void			sort_three(t_stacks *stacks, int flag);
+void			sort_two(t_stacks *stacks);
 void			move_back(t_stacks *stacks);
 void			new_max_a(t_stacks *stacks);
 void			new_min_a(t_stacks *stacks);
 void			new_element_a(t_stacks *stacks, t_stack_item *b_head);
+int				validate_input(int argc, char **argv);
 /*
  * Stack helper
  */
@@ -92,4 +96,8 @@ int				find_index_a(t_stacks *stacks, long num);
 long			search_num_b(t_stacks *stacks, long num);
 long			search_num_a(t_stacks *stacks, long num);
 void			ft_freeall(t_stacks *stacks);
+/*
+ * Helper
+ */
+void			exit_on_error(void);
 #endif

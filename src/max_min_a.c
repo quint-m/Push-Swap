@@ -32,10 +32,10 @@ void	new_max_a(t_stacks *stacks)
 	{
 		i = find_index_a(stacks, stacks->values->a_max);
 		size = ft_listsize(stacks->a_head);
-		if (i > size / 2)
-			stacks->moves->rra = size - i;
+		if (i >= size / 2)
+			stacks->moves->rra = size - i - 1;
 		else
-			stacks->moves->ra = i;
+			stacks->moves->ra = i + 1;
 	}
 	move_stack_a(stacks);
 	ft_rotate(stacks, 'a');
@@ -48,7 +48,7 @@ void	new_min_a(t_stacks *stacks)
 
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
-	if (ft_listlast(stacks->a_head)->content != stacks->values->a_min)
+	if (stacks->a_head->content != stacks->values->a_min)
 	{
 		i = find_index_a(stacks, stacks->values->a_min);
 		size = ft_listsize(stacks->a_head);

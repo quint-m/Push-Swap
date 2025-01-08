@@ -10,14 +10,14 @@
 NAME        := push_swap
 LIBFT_DIR	:= ./libft
 LIBFT		:= $(LIBFT_DIR)/libft.a
-CC        	:= cc
-FLAGS    	:= -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
+CC        	:= gcc
+FLAGS    	:= -g -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
 SRCS        :=      src/stack.c \
-                          src/sort_three.c \
+                          src/sort_couple.c \
                           src/find_min_max.c \
                           src/move_costs.c \
                           src/move_cheapest.c \
@@ -33,6 +33,7 @@ SRCS        :=      src/stack.c \
                           src/max_min_a.c \
                           src/push_swap.c \
                           src/linked_list.c \
+                          src/validate_input.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
