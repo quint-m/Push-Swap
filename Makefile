@@ -1,45 +1,83 @@
-NAME 	= push_swap
-CC 		= cc
-FLAGS 	= -Wall -Werror -Wextra
+#  |  |  ___ \    \  |         |
+#  |  |     ) |  |\/ |   _  |  |  /   _ 
+# ___ __|  __/   |   |  (   |    <    __/ 
+#    _|  _____| _|  _| \__,_| _|\_\ \___|
+#                              by jcluzet
+################################################################################
+#                                     CONFIG                                   #
+################################################################################
 
-LIBFT_INC = libft/include
-INC_DIR = include
-SRC_DIR = src
-OBJ_DIR = obj
+NAME        := push_swap
+LIBFT_DIR	:= ./libft
+LIBFT		:= $(LIBFT_DIR)/libft.a
+CC        	:= cc
+FLAGS    	:= -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
+################################################################################
+#                                 PROGRAM'S SRCS                               #
+################################################################################
 
-VPATH 	= src
+SRCS        :=      src/stack.c \
+                          src/sort_three.c \
+                          src/find_min_max.c \
+                          src/move_costs.c \
+                          src/move_cheapest.c \
+                          src/list_debug.c \
+                          src/check_cheapest.c \
+                          src/new_element_a.c \
+                          src/rev_rotations.c \
+                          src/move_back.c \
+                          src/sorting.c \
+                          src/rotations.c \
+                          src/swap.c \
+                          src/push_to_b.c \
+                          src/stack_positioning.c \
+                          src/max_min_a.c \
+                          src/push_swap.c \
+                          src/linked_list.c \
+                          
+OBJS        := $(SRCS:.c=.o)
 
-SOURCES = push_swap.c linked_list.c stack.c rotations.c rev_rotations.c swap.c sorting.c list_debug.c move_cheapest.c find_min_max.c move_costs.c stack_positioning.c check_cheapest.c sort_three.c move_back.c max_min_a.c new_element_a.c
-OBJECTS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME): $(OBJECTS) libft.a
-	$(CC) $(FLAGS) -o push_swap $(OBJECTS) libft.a
+################################################################################
+#                                  Makefile  objs                              #
+################################################################################
 
-$(OBJ_DIR):
-	mkdir -p $@
 
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@echo "$(YELLOW)⏳ Compiling $<...$(RESET)"
-	$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_INC) -c $< -o $@
-	@echo "$(GREEN)✅ $< compiled!$(RESET)"
+CLR_RMV		:= \033[0m
+RED		    := \033[1;31m
+GREEN		:= \033[1;32m
+YELLOW		:= \033[1;33m
+BLUE		:= \033[1;34m
+CYAN 		:= \033[1;36m
+RM		    := rm -f
 
-all: $(NAME)
-	@echo "$(GREEN)✅ Building all targets...$(RESET)"
+${NAME}:	${LIBFT} ${OBJS}
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+			${CC} ${FLAGS} -o ${NAME} ${OBJS} ${LIBFT}
+			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
-libft.a:
-	@make -C libft
-	mv libft/libft.a libft.a
+${LIBFT}:
+	@echo "$(BLUE)Building libft...$(CLR_RMV)"
+	@make -C ${LIBFT_DIR}
+
+all:		${NAME}
+
+bonus:		all
 
 clean:
-	@echo "$(RED)🗑️  Cleaning all object files...$(RESET)"
-	$(RM) $(OBJS)
+			@ ${RM} *.o */*.o */*/*.o
+			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
+			@ make -C ${LIBFT_DIR} clean
 
-fclean:	clean
-	@echo "$(RED)🗑️  Cleaning $(NAME)...$(RESET)"
-	$(RM) $(NAME)
-	@rm -rf $(OBJ_DIR)
-	@rm libft.a
+fclean:		clean
+			@ ${RM} ${NAME}
+			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
+			@ make -C ${LIBFT_DIR} fclean
 
-re:	fclean all
+re:			fclean all
 
-.PHONY: $(NAME) all clean fclean re
+.PHONY:		all clean fclean re
+
+

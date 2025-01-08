@@ -6,12 +6,13 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 10:12:19 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:26:18 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 13:42:35 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
 static void	print_cheapest(t_stacks *stacks, int i)
 {
 	ft_printf("--- cheapest(%i)---\n", i);
@@ -21,6 +22,7 @@ static void	print_cheapest(t_stacks *stacks, int i)
 	ft_printf("pb %i\n", stacks->cheap->pb);
 	ft_printf("------------------\n");
 }
+*/
 
 void	check_moves(t_stacks *stacks)
 {
