@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:34:52 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:44:39 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 12:40:34 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,31 @@ long	search_num_b(t_stacks *stacks, long num)
 			if (head_b->content == num)
 				flag = 1;
 			head_b = head_b->next;
+		}
+	}
+	return (num);
+}
+
+long	search_num_a(t_stacks *stacks, long num)
+{
+	t_stack_item	*head_a;
+	int				size;
+	int				flag;
+	int				i;
+
+	i = 0;
+	flag = 0;
+	head_a = stacks->a_head;
+	size = ft_listsize(stacks->a_head);
+	while (flag == 0) {
+		i = 0;
+		num++;
+		head_a = stacks->a_head;
+		while (i++ < size)
+		{
+			if(head_a->content == num)
+				flag = 1;
+			head_a = head_a->next;
 		}
 	}
 	return (num);

@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:39:56 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:51:51 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 12:45:31 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	new_max_a(t_stacks *stacks)
 
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
-	while (ft_listlast(stacks->a_head)->content != stacks->values->a_max)
+	if (ft_listlast(stacks->a_head)->content != stacks->values->a_max)
 	{
 		i = find_index_a(stacks, stacks->values->a_max);
 		size = ft_listsize(stacks->a_head);
@@ -48,7 +48,7 @@ void	new_min_a(t_stacks *stacks)
 
 	stacks->moves->ra = 0;
 	stacks->moves->rra = 0;
-	while (ft_listlast(stacks->a_head)->content != stacks->values->a_min)
+	if (ft_listlast(stacks->a_head)->content != stacks->values->a_min)
 	{
 		i = find_index_a(stacks, stacks->values->a_min);
 		size = ft_listsize(stacks->a_head);
