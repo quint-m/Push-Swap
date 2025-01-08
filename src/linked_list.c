@@ -52,7 +52,8 @@ static void			ft_clearlist(t_stack_item *list)
 {
 	t_stack_item	*current;
 	t_stack_item	*last;
-
+	if (!list)
+		return ;
 	current = list;
 	while (current)
 	{
@@ -67,7 +68,10 @@ void		ft_freeall(t_stacks *stacks)
 {
 	ft_clearlist(stacks->a_head);
 	ft_clearlist(stacks->b_head);
-	free(stacks->moves);
-	free(stacks->values);
-	free(stacks->cheap);
+	if (stacks->moves != NULL)
+		free(stacks->moves);
+	if (stacks->values != NULL)
+		free(stacks->values);
+	if (stacks->cheap != NULL)
+		free(stacks->cheap);
 }

@@ -40,7 +40,11 @@ int	main(int argc, char **argv)
 	else
 		stacks.a_head = create_a_stack(++argv);
 	stacks.b_head = NULL;
+	stacks.values = NULL;
+	stacks.moves = NULL;
+	stacks.cheap = NULL;
 	sorting(&stacks);
+	ft_print_list(&stacks, 'a');
 	ft_freeall(&stacks);
 	return (0);
 }
