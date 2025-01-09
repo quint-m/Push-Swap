@@ -10,7 +10,6 @@ PushSwap is a project for the 42 school that challenges students to sort a list 
 4. [Getting Started](#getting-started)
 5. [Usage](#usage)
 6. [Testing](#testing)
-7. [License](#license)
 
 ---
 
