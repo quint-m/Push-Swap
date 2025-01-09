@@ -9,7 +9,7 @@
 
 NAME        := push_swap
 LIBFT_DIR	:= ./libft
-LIBFT		:= $(LIBFT_DIR)/libft.a
+LIBFT		:= libft.a
 CC        	:= gcc
 FLAGS    	:= -g -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
 ################################################################################
@@ -17,28 +17,26 @@ FLAGS    	:= -g -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
 ################################################################################
 
 SRCS        :=      src/stack.c \
-                          src/sort_couple.c \
-                          src/find_min_max.c \
-                          src/move_costs.c \
-                          src/move_cheapest.c \
-                          src/list_debug.c \
-                          src/check_cheapest.c \
-                          src/new_element_a.c \
-                          src/rev_rotations.c \
-                          src/move_back.c \
-                          src/sorting.c \
-                          src/rotations.c \
-                          src/swap.c \
-                          src/stack_positioning.c \
-                          src/max_min_a.c \
-                          src/push_swap.c \
-                          src/linked_list.c \
-                          src/validate_input.c \
-                          
-OBJS        := $(SRCS:.c=.o)
-
-.c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+						  src/sort_couple.c \
+						  src/find_min_max.c \
+						  src/move_costs.c \
+						  src/move_cheapest.c \
+						  src/list_debug.c \
+						  src/check_cheapest.c \
+						  src/new_element_a.c \
+						  src/rev_rotations.c \
+						  src/move_back.c \
+						  src/sorting.c \
+						  src/rotations.c \
+						  src/swap.c \
+						  src/stack_positioning.c \
+						  src/max_min_a.c \
+						  src/push_swap.c \
+						  src/linked_list.c \
+						  src/validate_input.c \
+						  
+OBJ_DIR		:= obj
+OBJS        := $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 ################################################################################
 #                                  Makefile  objs                              #
@@ -53,6 +51,10 @@ BLUE		:= \033[1;34m
 CYAN 		:= \033[1;36m
 RM		    := rm -f
 
+$(OBJ_DIR)/%.o: src/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@
+
 ${NAME}:	${LIBFT} ${OBJS}
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			${CC} ${FLAGS} -o ${NAME} ${OBJS} ${LIBFT}
@@ -61,13 +63,15 @@ ${NAME}:	${LIBFT} ${OBJS}
 ${LIBFT}:
 	@echo "$(BLUE)Building libft...$(CLR_RMV)"
 	@make -C ${LIBFT_DIR}
+	@cp ${LIBFT_DIR}/libft.a ./${LIBFT}
+	@echo "$(GREEN)Libft created ✔️$(CLR_RMV)"
 
 all:		${NAME}
 
 bonus:		all
 
 clean:
-			@ ${RM} *.o */*.o */*/*.o
+			@ ${RM} -r $(OBJ_DIR)
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 			@ make -C ${LIBFT_DIR} clean
 
@@ -75,6 +79,7 @@ fclean:		clean
 			@ ${RM} ${NAME}
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 			@ make -C ${LIBFT_DIR} fclean
+			@ ${RM} ${LIBFT}
 
 re:			fclean all
 
