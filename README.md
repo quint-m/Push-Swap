@@ -1,7 +1,3 @@
-Here’s a draft for your README file:
-
----
-
 # PushSwap
 
 PushSwap is a project for the 42 school that challenges students to sort a list of numbers in as few operations as possible. The program utilizes two stacks (`a` and `b`) and a set of predefined operations to achieve the sorting.
