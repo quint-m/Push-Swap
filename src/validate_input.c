@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
 
 void	exit_on_error(void)
 {
@@ -19,7 +18,7 @@ void	exit_on_error(void)
 	exit(1);
 }
 
-int		check_number_count(char **numbers)
+int	check_number_count(char **numbers)
 {
 	int	i;
 
@@ -31,7 +30,7 @@ int		check_number_count(char **numbers)
 	return (i);
 }
 
-int		check_alpha_chars(char **numbers)
+int	check_numbers(char **numbers)
 {
 	int	i;
 	int	j;
@@ -41,27 +40,30 @@ int		check_alpha_chars(char **numbers)
 	{
 		j = 0;
 		while (numbers[i][j])
-			if (ft_isalpha(numbers[i][j++]))
+		{
+			if (!ft_isdigit(numbers[i][j]) && j > 0)
 				return (1);
+			if (ft_isalpha(numbers[i][j]))
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
 }
 
-int		check_doubles(char **numbers)
+int	check_doubles(char **numbers)
 {
 	int	i;
 	int	j;
-	int	n;
 
 	i = 0;
 	while (numbers[i])
 	{
-		n = ft_atoi(numbers[i]);
-		j = 0;
-		while (i > 0 && numbers[i + j])
+		j = i + 1;
+		while (numbers[j])
 		{
-			if (n == ft_atoi(numbers[j]))
+			if (ft_atoi(numbers[i]) == ft_atoi(numbers[j]))
 				return (1);
 			j++;
 		}
@@ -81,7 +83,7 @@ int	validate_input(int argc, char **argv)
 		numbers = ft_split(argv[1], ' ');
 		if (check_number_count(numbers) < 2)
 			return (0);
-		if (check_alpha_chars(numbers))
+		if (check_numbers(numbers))
 			return (0);
 		if (check_doubles(numbers))
 			return (0);
