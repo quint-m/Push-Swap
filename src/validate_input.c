@@ -18,7 +18,7 @@ void	exit_on_error(void)
 	exit(1);
 }
 
-int	check_number_count(char **numbers)
+static int	check_number_count(char **numbers)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ int	check_number_count(char **numbers)
 	return (i);
 }
 
-int	check_numbers(char **numbers)
+static int	check_numbers(char **numbers)
 {
 	int	i;
 	int	j;
@@ -52,7 +52,7 @@ int	check_numbers(char **numbers)
 	return (0);
 }
 
-int	check_doubles(char **numbers)
+static int	check_doubles(char **numbers)
 {
 	int	i;
 	int	j;
@@ -75,18 +75,27 @@ int	check_doubles(char **numbers)
 int	validate_input(int argc, char **argv)
 {
 	char	**numbers;
+	int		i;
 
+	i = 1;
 	if (argc < 2)
 		return (0);
-	if (argc == 2)
-	{
+	else if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
-		if (check_number_count(numbers) < 2)
-			return (0);
-		if (check_numbers(numbers))
-			return (0);
-		if (check_doubles(numbers))
-			return (0);
+	else
+	{
+		numbers = malloc(argc * sizeof(char *));
+		while (argv[i])
+		{
+			numbers[i - 1] = ft_strdup(argv[i]);
+			i++;
+		}
 	}
+	if (check_number_count(numbers) < 2)
+		return (0);
+	if (check_numbers(numbers))
+		return (0);
+	if (check_doubles(numbers))
+		return (0);
 	return (1);
 }
