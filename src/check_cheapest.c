@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	find_index_b(t_stacks *stacks, long num)
+int	find_index_b(t_stacks *stacks, int num)
 {
 	int				i;
 	int				size;
@@ -31,7 +31,7 @@ int	find_index_b(t_stacks *stacks, long num)
 	return (i);
 }
 
-int	find_index_a(t_stacks *stacks, long num)
+int	find_index_a(t_stacks *stacks, int num)
 {
 	int				i;
 	int				size;
@@ -50,7 +50,7 @@ int	find_index_a(t_stacks *stacks, long num)
 	return (i);
 }
 
-long	search_num_b(t_stacks *stacks, long num)
+long	search_num_b(t_stacks *stacks, int num)
 {
 	t_stack_item	*head_b;
 	int				size;
@@ -76,7 +76,7 @@ long	search_num_b(t_stacks *stacks, long num)
 	return (num);
 }
 
-long	search_num_a(t_stacks *stacks, long num)
+long	search_num_a(t_stacks *stacks, int num)
 {
 	t_stack_item	*head_a;
 	int				size;

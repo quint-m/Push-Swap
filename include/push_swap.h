@@ -17,9 +17,10 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+
 typedef struct t_stack_item
 {
-	long					content;
+	int					content;
 	struct t_stack_item		*next;
 }				t_stack_item;
 
@@ -34,10 +35,10 @@ typedef struct t_stacks
 
 typedef struct t_values
 {
-	long	a_min;
-	long	a_max;
-	long	b_min;
-	long	b_max;
+	int	a_min;
+	int	a_max;
+	int	b_min;
+	int	b_max;
 }				t_values;
 
 typedef struct t_moves
@@ -91,10 +92,10 @@ int				ft_listsize(t_stack_item *list);
 t_stack_item	*ft_listlast(t_stack_item *list);
 void			ft_print_list(t_stacks *stacks, char c);
 void			min_max(t_stacks *stacks, char c);
-int				find_index_b(t_stacks *stacks, long num);
-int				find_index_a(t_stacks *stacks, long num);
-long			search_num_b(t_stacks *stacks, long num);
-long			search_num_a(t_stacks *stacks, long num);
+int				find_index_b(t_stacks *stacks, int num);
+int				find_index_a(t_stacks *stacks, int num);
+long			search_num_b(t_stacks *stacks, int num);
+long			search_num_a(t_stacks *stacks, int num);
 void			ft_freeall(t_stacks *stacks);
 /*
  * Helper
