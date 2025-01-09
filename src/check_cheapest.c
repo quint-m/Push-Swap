@@ -87,13 +87,14 @@ long	search_num_a(t_stacks *stacks, long num)
 	flag = 0;
 	head_a = stacks->a_head;
 	size = ft_listsize(stacks->a_head);
-	while (flag == 0) {
+	while (flag == 0)
+	{
 		i = 0;
 		num++;
 		head_a = stacks->a_head;
 		while (i++ < size)
 		{
-			if(head_a->content == num)
+			if (head_a->content == num)
 				flag = 1;
 			head_a = head_a->next;
 		}

@@ -34,8 +34,9 @@ t_stack_item	*create_a_stack(char **argv)
 int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
+
 	if (!validate_input(argc, argv))
-	 	exit_on_error();
+		exit_on_error();
 	if (argc == 2)
 		stacks.a_head = create_a_stack(ft_split(argv[1], ' '));
 	else

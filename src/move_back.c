@@ -14,9 +14,9 @@
 
 static void	do_moves(t_stacks *stacks)
 {
-	while(stacks->moves->rra-- > 0)
+	while (stacks->moves->rra-- > 0)
 		ft_rev_rotate(stacks, 'a');
-	while(stacks->moves->ra-- > 0)
+	while (stacks->moves->ra-- > 0)
 		ft_rotate(stacks, 'a');
 }
 
