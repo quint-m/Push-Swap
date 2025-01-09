@@ -6,3 +6,4 @@ compile_commands.json
 push_swap
 libft.a
 */.vscode/*
+tester
