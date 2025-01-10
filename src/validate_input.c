@@ -24,9 +24,7 @@ static int	check_number_count(char **numbers)
 
 	i = 0;
 	while (numbers[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -47,6 +45,10 @@ static int	check_numbers(char **numbers)
 				return (1);
 			j++;
 		}
+		if (ft_atoi(numbers[i]) < 0 && !ft_strchr(numbers[i], '-'))
+			return (1);
+		else if (ft_atoi(numbers[i]) > 0 && ft_strchr(numbers[i], '-'))
+			return (1);
 		i++;
 	}
 	return (0);
@@ -72,30 +74,13 @@ static int	check_doubles(char **numbers)
 	return (0);
 }
 
-int	validate_input(int argc, char **argv)
+int	validate_input(char **input)
 {
-	char	**numbers;
-	int		i;
-
-	i = 1;
-	if (argc < 2)
+	if (check_number_count(input) < 2)
 		return (0);
-	else if (argc == 2)
-		numbers = ft_split(argv[1], ' ');
-	else
-	{
-		numbers = malloc(argc * sizeof(char *));
-		while (argv[i])
-		{
-			numbers[i - 1] = ft_strdup(argv[i]);
-			i++;
-		}
-	}
-	if (check_number_count(numbers) < 2)
+	if (check_numbers(input))
 		return (0);
-	if (check_numbers(numbers))
-		return (0);
-	if (check_doubles(numbers))
+	if (check_doubles(input))
 		return (0);
 	return (1);
 }

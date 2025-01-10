@@ -8,35 +8,58 @@
 ################################################################################
 
 NAME        := push_swap
+NAME_BONUS	:= checker
 LIBFT_DIR	:= ./libft
 LIBFT		:= libft.a
-CC        	:= gcc
+CC        	:= cc
 FLAGS    	:= -g -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
 SRCS        :=      src/stack.c \
-						  src/sort_couple.c \
-						  src/find_min_max.c \
-						  src/move_costs.c \
-						  src/move_cheapest.c \
-						  src/list_debug.c \
-						  src/check_cheapest.c \
-						  src/new_element_a.c \
-						  src/rev_rotations.c \
-						  src/move_back.c \
-						  src/sorting.c \
-						  src/rotations.c \
-						  src/swap.c \
-						  src/stack_positioning.c \
-						  src/max_min_a.c \
-						  src/push_swap.c \
-						  src/linked_list.c \
-						  src/validate_input.c \
-						  
+					src/sort_couple.c \
+					src/find_min_max.c \
+					src/move_costs.c \
+					src/move_cheapest.c \
+					src/list_debug.c \
+					src/check_cheapest.c \
+					src/new_element_a.c \
+					src/rev_rotations.c \
+					src/move_back.c \
+					src/sorting.c \
+					src/rotations.c \
+					src/swap.c \
+					src/stack_positioning.c \
+					src/max_min_a.c \
+					src/push_swap.c \
+					src/linked_list.c \
+					src/validate_input.c \
+					src/input_util.c \
+
+SRCS_BONUS		:=	src/checker.c \
+					src/sort_couple.c \
+					src/find_min_max.c \
+					src/move_costs.c \
+					src/move_cheapest.c \
+					src/list_debug.c \
+					src/check_cheapest.c \
+					src/new_element_a.c \
+					src/rev_rotations.c \
+					src/move_back.c \
+					src/sorting.c \
+					src/rotations.c \
+					src/swap.c \
+					src/stack_positioning.c \
+					src/max_min_a.c \
+					src/linked_list.c \
+					src/validate_input.c \
+					src/input_util.c \
+					src/stack.c \
+
 OBJ_DIR		:= obj
 OBJS        := $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
+OBJS_BONUS  := $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_BONUS:.c=.o)))
 
 ################################################################################
 #                                  Makefile  objs                              #
@@ -60,6 +83,11 @@ ${NAME}:	${LIBFT} ${OBJS}
 			${CC} ${FLAGS} -o ${NAME} ${OBJS} ${LIBFT}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
+${NAME_BONUS}:	${LIBFT} ${OBJS_BONUS}
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME_BONUS) ${CLR_RMV}..."
+			${CC} ${FLAGS} -o ${NAME_BONUS} ${OBJS_BONUS} ${LIBFT}
+			@echo "$(GREEN)$(NAME_BONUS) created[0m ✔️"
+
 ${LIBFT}:
 	@echo "$(BLUE)Building libft...$(CLR_RMV)"
 	@make -C ${LIBFT_DIR}
@@ -68,7 +96,7 @@ ${LIBFT}:
 
 all:		${NAME}
 
-bonus:		all
+bonus:		${NAME_BONUS}
 
 clean:
 			@ ${RM} -r $(OBJ_DIR)

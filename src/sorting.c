@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	check_order(t_stacks *stacks)
+int	check_order(t_stacks *stacks)
 {
 	int				i;
 	int				size;

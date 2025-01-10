@@ -21,8 +21,8 @@
 typedef struct t_stack_item
 {
 	int					content;
-	struct t_stack_item		*next;
-}				t_stack_item;
+	struct t_stack_item	*next;
+}	t_stack_item;
 
 typedef struct t_stacks
 {
@@ -31,7 +31,7 @@ typedef struct t_stacks
 	struct t_values		*values;
 	struct t_moves		*moves;
 	struct t_moves		*cheap;
-}				t_stacks;
+}	t_stacks;
 
 typedef struct t_values
 {
@@ -39,7 +39,7 @@ typedef struct t_values
 	int	a_max;
 	int	b_min;
 	int	b_max;
-}				t_values;
+}	t_values;
 
 typedef struct t_moves
 {
@@ -82,7 +82,7 @@ void			move_back(t_stacks *stacks);
 void			new_max_a(t_stacks *stacks);
 void			new_min_a(t_stacks *stacks);
 void			new_element_a(t_stacks *stacks, t_stack_item *b_head);
-int				validate_input(int argc, char **argv);
+int				validate_input(char **input);
 /*
  * Stack helper
  */
@@ -101,4 +101,7 @@ void			ft_freeall(t_stacks *stacks);
  * Helper
  */
 void			exit_on_error(void);
+char			**split_input(int count, char **argv);
+void			free_input(char **input);
+int				check_order(t_stacks *stacks);
 #endif
