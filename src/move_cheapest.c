@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:15:28 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/07 19:27:38 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 16:58:11 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	move_cheapest(t_stacks *stacks)
 	stacks->cheap = cheap;
 	values = ft_calloc(1, sizeof(t_values));
 	stacks->values = values;
-	while (ft_listsize(stacks->a_head) > 3)
+	while (ft_listsize(stacks->a_head) != 3)
 	{
 		min_max(stacks, 'b');
 		check_moves(stacks);

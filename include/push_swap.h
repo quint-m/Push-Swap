@@ -6,7 +6,7 @@
 /*   By: qmennen <qmennen@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:46:11 by qmennen           #+#    #+#             */
-/*   Updated: 2025/01/08 13:01:17 by qmennen          ###   ########.fr       */
+/*   Updated: 2025/01/08 16:11:36 by qmennen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include "libft.h"
 # include <stddef.h>
+# include <stdlib.h>
 
 typedef struct t_stack_item
 {
-	long					content;
-	struct t_stack_item		*next;
-}				t_stack_item;
+	int					content;
+	struct t_stack_item	*next;
+}	t_stack_item;
 
 typedef struct t_stacks
 {
@@ -29,15 +30,15 @@ typedef struct t_stacks
 	struct t_values		*values;
 	struct t_moves		*moves;
 	struct t_moves		*cheap;
-}				t_stacks;
+}	t_stacks;
 
 typedef struct t_values
 {
-	long	a_min;
-	long	a_max;
-	long	b_min;
-	long	b_max;
-}				t_values;
+	int	a_min;
+	int	a_max;
+	int	b_min;
+	int	b_max;
+}	t_values;
 
 typedef struct t_moves
 {
@@ -73,11 +74,14 @@ void			move_cheapest(t_stacks *stacks);
 void			solve_doubles(t_stacks *stacks);
 void			calculate_cost(t_stacks *stacks, int i);
 void			do_cheap_moves(t_stacks *stacks);
-void			sort_three(t_stacks *stacks);
+void			sort_four(t_stacks *stacks);
+void			sort_three(t_stacks *stacks, int flag);
+void			sort_two(t_stacks *stacks);
 void			move_back(t_stacks *stacks);
 void			new_max_a(t_stacks *stacks);
 void			new_min_a(t_stacks *stacks);
 void			new_element_a(t_stacks *stacks, t_stack_item *b_head);
+int				validate_input(char **input);
 /*
  * Stack helper
  */
@@ -87,9 +91,16 @@ int				ft_listsize(t_stack_item *list);
 t_stack_item	*ft_listlast(t_stack_item *list);
 void			ft_print_list(t_stacks *stacks, char c);
 void			min_max(t_stacks *stacks, char c);
-int				find_index_b(t_stacks *stacks, long num);
-int				find_index_a(t_stacks *stacks, long num);
-long			search_num_b(t_stacks *stacks, long num);
-long			search_num_a(t_stacks *stacks, long num);
+int				find_index_b(t_stacks *stacks, int num);
+int				find_index_a(t_stacks *stacks, int num);
+long			search_num_b(t_stacks *stacks, int num);
+long			search_num_a(t_stacks *stacks, int num);
 void			ft_freeall(t_stacks *stacks);
+/*
+ * Helper
+ */
+void			exit_on_error(void);
+char			**split_input(int count, char **argv);
+void			free_input(char **input);
+int				check_order(t_stacks *stacks);
 #endif
