@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void init_stacks(t_stacks *stacks)
+static void	init_stacks(t_stacks *stacks)
 {
 	t_moves		*moves;
 	t_moves		*cheap;
@@ -26,9 +26,9 @@ static void init_stacks(t_stacks *stacks)
 	stacks->values = values;
 }
 
-static void new_move(t_stacks *stacks, const char *move)
+static void	new_move(t_stacks *stacks, const char *move)
 {
-	size_t len;
+	size_t	len;
 
 	len = ft_strlen(move) - 1;
 	if (ft_strncmp(move, "ra", len) == 0)
@@ -55,7 +55,7 @@ static void new_move(t_stacks *stacks, const char *move)
 		ft_swap(stacks, ' ');
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
 	char		**input;
@@ -70,12 +70,14 @@ int main(int argc, char **argv)
 	stacks.a_head = create_a_stack(input);
 	stacks.b_head = NULL;
 	init_stacks(&stacks);
-	while ((move = get_next_line(0)))
+	move = get_next_line(0);
+	while (move != NULL)
 	{
 		new_move(&stacks, move);
 		free(move);
+		move = get_next_line(0);
 	}
-	if(check_order(&stacks) && stacks.b_head == NULL)
+	if (check_order(&stacks) && stacks.b_head == NULL)
 		ft_printf("OK\n");
 	ft_freeall(&stacks);
 	free_input(input);
