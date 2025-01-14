@@ -106,6 +106,8 @@ clean:
 fclean:		clean
 			@ ${RM} ${NAME}
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
+			@ ${RM} ${NAME_BONUS}
+			@ echo "$(RED)Deleting $(CYAN)$(NAME_BONUS) $(CLR_RMV)binary ✔️"
 			@ make -C ${LIBFT_DIR} fclean
 			@ ${RM} ${LIBFT}
 
