@@ -17,7 +17,6 @@
 # include <stddef.h>
 # include <stdlib.h>
 
-
 typedef struct t_stack_item
 {
 	int					content;

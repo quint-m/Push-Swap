@@ -101,3 +101,19 @@ long	search_num_a(t_stacks *stacks, int num)
 	}
 	return (num);
 }
+
+void	get_top_of_a(t_stacks *stacks, t_stack_item *a_head, int i)
+{
+	int	size;
+
+	stacks->moves->pb = 1;
+	stacks->moves->ra = 0;
+	stacks->moves->rra = 0;
+	if (stacks->a_head->content == a_head->content)
+		return ;
+	size = ft_listsize(stacks->a_head);
+	if (i > size / 2)
+		stacks->moves->rra = size - i;
+	else
+		stacks->moves->ra = i;
+}

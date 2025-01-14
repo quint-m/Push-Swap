@@ -34,7 +34,7 @@ static void	ft_swap_b(t_stack_item *b_head, int print)
 	tmp_content = b_head->content;
 	b_head->content = b_head->next->content;
 	b_head->next->content = tmp_content;
-	if(print)
+	if (print)
 		ft_printf("sb\n");
 }
 

@@ -61,8 +61,6 @@ int main(int argc, char **argv)
 	char		**input;
 	char		*move;
 
-	if (argc < 2)
-		return (1);
 	input = split_input(argc, argv);
 	if (!validate_input(input))
 	{
@@ -70,15 +68,16 @@ int main(int argc, char **argv)
 		exit_on_error();
 	}
 	stacks.a_head = create_a_stack(input);
+	stacks.b_head = NULL;
 	init_stacks(&stacks);
-	while ((move = get_next_line(0)) != " ")
+	while ((move = get_next_line(0)))
+	{
 		new_move(&stacks, move);
-	ft_printf("%i\n", stacks.a_head->content);
-	// if(check_order(&stacks))
-	// {
-	// 	ft_printf("OK\n");
-	// }
+		free(move);
+	}
+	if(check_order(&stacks) && stacks.b_head == NULL)
+		ft_printf("OK\n");
 	ft_freeall(&stacks);
-	// free_input(input);
+	free_input(input);
 	return (0);
 }

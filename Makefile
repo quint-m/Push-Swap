@@ -17,21 +17,21 @@ FLAGS    	:= -g -Wall -Wextra -Werror -I./include -I$(LIBFT_DIR)/include
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      src/stack.c \
+SRCS        :=      src/move_push.c \
 					src/sort_couple.c \
 					src/find_min_max.c \
-					src/move_costs.c \
+					src/calculate_moves.c \
 					src/move_cheapest.c \
 					src/list_debug.c \
-					src/check_cheapest.c \
+					src/search_list.c \
 					src/new_element_a.c \
+					src/new_max_min_a.c \
 					src/rev_rotations.c \
 					src/move_back.c \
 					src/sorting.c \
 					src/rotations.c \
 					src/swap.c \
-					src/stack_positioning.c \
-					src/max_min_a.c \
+					src/new_pos_in_b.c \
 					src/push_swap.c \
 					src/linked_list.c \
 					src/validate_input.c \
@@ -40,22 +40,22 @@ SRCS        :=      src/stack.c \
 SRCS_BONUS		:=	src/checker.c \
 					src/sort_couple.c \
 					src/find_min_max.c \
-					src/move_costs.c \
+					src/calculate_moves.c \
 					src/move_cheapest.c \
 					src/list_debug.c \
-					src/check_cheapest.c \
-					src/new_element_a.c \
+					src/search_list.c \
 					src/rev_rotations.c \
 					src/move_back.c \
 					src/sorting.c \
 					src/rotations.c \
 					src/swap.c \
-					src/stack_positioning.c \
-					src/max_min_a.c \
+					src/new_pos_in_b.c \
+					src/new_max_min_a.c \
+					src/new_element_a.c \
 					src/linked_list.c \
 					src/validate_input.c \
 					src/input_util.c \
-					src/stack.c \
+					src/move_push.c \
 
 OBJ_DIR		:= obj
 OBJS        := $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
@@ -94,7 +94,7 @@ ${LIBFT}:
 	@cp ${LIBFT_DIR}/libft.a ./${LIBFT}
 	@echo "$(GREEN)Libft created ✔️$(CLR_RMV)"
 
-all:		${NAME}
+all:		${NAME} bonus
 
 bonus:		${NAME_BONUS}
 

@@ -22,7 +22,7 @@ int	check_order(t_stacks *stacks)
 	head = stacks->a_head;
 	i = 0;
 	size = ft_listsize(stacks->a_head);
-	while (i < size)
+	while (i < size && head->next)
 	{
 		last = head;
 		head = head->next;
@@ -38,14 +38,14 @@ void	sorting(t_stacks *stacks)
 	int	size;
 
 	size = ft_listsize(stacks->a_head);
-	if (size == 2)
+	if (check_order(stacks))
+		return ;
+	else if (size == 2)
 		sort_two(stacks);
 	else if (size == 3)
 		sort_three(stacks, 1);
 	else if (size == 4)
 		sort_four(stacks);
-	if (check_order(stacks))
-		return ;
 	ft_push(stacks, 'b');
 	ft_push(stacks, 'b');
 	move_cheapest(stacks);
