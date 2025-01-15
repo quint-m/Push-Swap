@@ -17,6 +17,8 @@ int	main(int argc, char **argv)
 	t_stacks	stacks;
 	char		**input;
 
+	if (argc < 2)
+		return (1);
 	input = split_input(argc, argv);
 	if (!validate_input(input))
 	{

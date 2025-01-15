@@ -61,6 +61,8 @@ int	main(int argc, char **argv)
 	char		**input;
 	char		*move;
 
+	if (argc < 2)
+		return (1);
 	input = split_input(argc, argv);
 	if (!validate_input(input))
 	{
